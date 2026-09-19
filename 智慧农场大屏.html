@@ -1,0 +1,790 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="智慧无人农场综合管控驾驶舱，集环境监测、设备联动、生产分析与智能决策于一体。">
+<meta name="theme-color" content="#03160c">
+<title>智慧农场综合管控驾驶舱</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2303160c'/%3E%3Cpath d='M46 15C30 17 19 27 18 45c11 1 22-4 27-14-8 5-15 8-22 9 7-4 14-10 23-25Z' fill='%2358ff9c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body class="view-gh"><div id="vp">
+<div class="stage" id="stage">
+  <div class="bg"></div>
+  <div class="grid"></div>
+
+  <!-- 科技感标题栏 -->
+  <div class="topbar">
+    <div class="shine"></div>
+    <div class="tb-bracket l"></div>
+    <div class="tb-bracket r"></div>
+    <div class="tb-left">
+      <div class="weather-chip">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="5" fill="#ffd76a"/><g stroke="#ffd76a" stroke-width="1.4" stroke-linecap="round"><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></g></svg>
+        <span>室外 25.3℃ · 多云</span>
+      </div>
+      <button class="sys-btn" id="sysBtn">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/><path d="M13 5h6v6M5 13v6h6"/></svg>
+        进入系统
+      </button>
+    </div>
+    <div class="title-wrap">
+      <div class="wing">
+        <span class="wline"></span><span class="wseg"></span><span class="wdia"></span><span class="wseg"></span><span class="wdot"></span>
+      </div>
+      <svg class="title-logo" viewBox="0 0 48 48" fill="none">
+        <g>
+          <circle cx="24" cy="24" r="22" stroke="#58ff9c" stroke-width="1" stroke-dasharray="6 7" opacity=".7">
+            <animateTransform attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="14s" repeatCount="indefinite"/>
+          </circle>
+          <path d="M24 4 L42 14 V34 L24 44 L6 34 V14 Z" stroke="#58ff9c" stroke-width="1.6"/>
+          <path d="M24 12 L34 18 V30 L24 36 L14 30 V18 Z" stroke="#7bffae" stroke-width="1" opacity=".7"/>
+          <path d="M18 20 Q24 12 30 20 Q27 24 24 22.5 Q21 24 18 20Z" fill="#58ff9c"/>
+          <path d="M24 23 L24 33" stroke="#8fffbe" stroke-width="1.4"/>
+          <circle cx="24" cy="34.5" r="1.6" fill="#8fffbe"/>
+        </g>
+      </svg>
+      <div class="title"><span class="t-scan"></span>智慧农场综合管控驾驶舱<span class="deco">◆</span></div>
+      <div class="wing r">
+        <span class="wdot"></span><span class="wseg"></span><span class="wdia"></span><span class="wseg"></span><span class="wline"></span>
+      </div>
+    </div>
+    <div class="tb-right">
+      <button class="acq-btn" id="acqBtn"><i class="dot"></i>采 集</button>
+      <div class="top-time">
+        <div class="t1" id="clockT1">--:--:--</div>
+        <div class="t2" id="clockT2">····-··-·· · 数据实时刷新</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 左列：气象动态 / 环境监测 / 预警管理 -->
+  <div class="col col-left">
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3.5"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M18.4 5.6l-1.8 1.8M7.4 16.6l-1.8 1.8"/></svg></span>
+        <h2>气象动态</h2><span class="sub">园区级</span>
+      </div>
+      <div class="wx-hero">
+        <div class="bigico">
+          <svg width="78" height="78" viewBox="0 0 80 80" fill="none">
+            <circle cx="32" cy="30" r="13" fill="#ffd76a" opacity=".95"/>
+            <g stroke="#ffd76a" stroke-width="2" stroke-linecap="round">
+              <path d="M32 8v4M32 48v4M8 30h4M52 30h4M15 13l3 3M46 44l3 3M49 13l-3 3M18 44l-3 3"/>
+            </g>
+            <path d="M28 58a17 17 0 0 1 30-9 15 15 0 0 1 8 27H28z" fill="#cfe6f2"/>
+            <path d="M28 58a17 17 0 0 1 30-9 15 15 0 0 1 8 27H28z" fill="#eaf6ff" opacity=".55"/>
+          </svg>
+        </div>
+        <div>
+          <div class="bigtemp">25.3<small>℃</small></div>
+          <div class="wxdesc">多云 · <em>东南风 2.1m/s</em></div>
+        </div>
+      </div>
+      <div class="wx-mini">
+        <div class="field" style="--fc:#6fd1ff"><span class="f-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 2c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><div class="f-main"><div class="k">空气湿度</div><div class="v">62<small>%</small></div></div></div>
+        <div class="field" style="--fc:#6fd1ff"><span class="f-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M5 14a5 5 0 0 1 9.8-1.6A4.5 4.5 0 0 1 18 16.5"/><path d="M8.5 18.5c-.8-1-1.3-2-1.5-3.5M13 20c.8-1.2 1.3-2.3 1.4-3.8"/></svg></span><div class="f-main"><div class="k">降水量</div><div class="v">0.5<small>mm</small></div></div></div>
+        <div class="field" style="--fc:#8fffbe"><span class="f-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M7 14c-1-1-2-2.2-2-4a4 4 0 0 1 8 0c0 1.8-1 3-2 4"/><path d="M7 19h6M8 22h4"/></svg></span><div class="f-main"><div class="k">气压</div><div class="v">1012<small>hPa</small></div></div></div>
+        <div class="field" style="--fc:#ffb054"><span class="f-ico"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffb054" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><div class="f-main"><div class="k">紫外线</div><div class="v">3<small>级</small></div></div></div>
+      </div>
+      <div class="wx-foot">
+        <span>太阳辐射 <b>850</b> W/m²</span>
+        <span>日照时长 <b>7.2</b> h</span>
+        <span>能见度 <b>18</b> km</span>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M8 14c-1.2-1.2-2.5-2.7-2.5-5A4.5 4.5 0 0 1 15 7c0 1-1 1.2-1 1.2M7 20h6M9 23h2"/></svg></span>
+        <h2 id="envHead">环境监测</h2><span class="sub">LIVE</span><span class="right">监测对象：<b id="env-gh">3号大棚</b></span>
+      </div>
+      <div class="fields">
+        <div class="field">
+          <span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9d6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a6 6 0 0 0-6 6c0 2.2 1 3.6 2 5 1 1.4 1 2.2 1 4h6c0-1.8 0-2.6 1-4 1-1.4 2-2.8 2-5a6 6 0 0 0-6-6z"/><path d="M12 8v2"/></svg></span>
+          <div class="f-main"><div class="k" id="envK1">空气温度</div><div class="v"><span class="dv" id="env-t">26.8</span><small id="envU1">℃</small></div></div>
+        </div>
+        <div class="field">
+          <span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 2c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span>
+          <div class="f-main"><div class="k" id="envK2">空气湿度</div><div class="v"><span class="dv" id="env-h">62</span><small id="envU2">%RH</small></div></div>
+        </div>
+        <div class="field">
+          <span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9f8bff" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="12" r="3.5"/><path d="M11.5 12H20M17 8.5L20 12l-3 3.5"/></svg></span>
+          <div class="f-main"><div class="k" id="envK3">CO₂浓度</div><div class="v"><span class="dv" id="env-c">460</span><small id="envU3">ppm</small></div></div>
+        </div>
+        <div class="field">
+          <span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17.1 17.1l2 2M19.1 4.9l-2 2M6.9 17.1l-2 2"/></svg></span>
+          <div class="f-main"><div class="k" id="envK4">光照强度</div><div class="v"><span class="dv" id="env-l">28000</span><small id="envU4">Lux</small></div></div>
+        </div>
+        <div class="field wide">
+          <span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5" fill="#8fffbe" fill-opacity=".5"/><circle cx="18" cy="8" r="1" fill="#8fffbe"/><circle cx="7" cy="16" r="1.2" fill="#8fffbe"/><circle cx="16" cy="17" r=".9" fill="#8fffbe"/></svg></span>
+          <div class="f-main"><div class="k" id="envK5">PM2.5</div><div class="v"><span class="dv" id="env-p">18</span><small id="envU5">μg/m³</small></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffb054" stroke-width="1.8" stroke-linecap="round"><path d="M12 3L2 20h20z"/><path d="M12 9v5M12 17.5v.5"/></svg></span>
+        <h2>预警管理</h2><span class="sub">实时</span>
+      </div>
+      <div class="warn-cards">
+        <div class="wcard c1">
+          <div class="wic">
+            <span class="bico" style="--c:#ff6b6b">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ff8a8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
+              <i class="gem"></i><i class="pad"></i>
+            </span>
+            <span class="wv">5</span>
+          </div>
+          <div class="wn">灾害预警</div>
+        </div>
+        <div class="wcard c2">
+          <div class="wic">
+            <span class="bico" style="--c:#6fd1ff">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9adfff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c-3 0-4 2-4 4s1 2.5 1 4c0 1.5-1 2-1 3.5S10 18 12 18s4-1 4-2.5S15 13.5 15 12c0-1.5 1-2 1-4s-1-4-4-4z"/><circle cx="12" cy="11" r="1.5" fill="#9adfff"/></svg>
+              <i class="gem"></i><i class="pad"></i>
+            </span>
+            <span class="wv">0</span>
+          </div>
+          <div class="wn">病虫害预警</div>
+        </div>
+        <div class="wcard c3">
+          <div class="wic">
+            <span class="bico" style="--c:#ffb054">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ffcf8a" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/><path d="M9 22h6"/></svg>
+              <i class="gem"></i><i class="pad"></i>
+            </span>
+            <span class="wv">4</span>
+          </div>
+          <div class="wn">肥水预警</div>
+        </div>
+      </div>
+      <div class="wlist">
+        <div class="wli"><span class="dot d1"></span><span class="tx">未来24小时累计雨量将超80mm</span><span class="tm">18:22</span></div>
+        <div class="wli"><span class="dot d2"></span><span class="tx">3号大棚湿度低于阈值，建议补水</span><span class="tm">18:15</span></div>
+        <div class="wli"><span class="dot d3"></span><span class="tx">1号大棚夜间气温将降至2℃以下</span><span class="tm">18:10</span></div>
+        <div class="wli"><span class="dot d4"></span><span class="tx">5号大棚光照时长不足，建议补光</span><span class="tm">18:05</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右列：温湿度(水温水位)分析 / 土壤理化(肥力)指标 / 每日(生长)数据 / 设备状态 -->
+  <div class="col col-right">
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M4 17c2-1 3-3 4-5 1 2 2 4 4 5 2 1 4 0 5-2 1 2 2 2 3 2"/><path d="M4 20h16"/></svg></span>
+        <h2 id="thHead">温湿度分析</h2><span class="right">监测对象：<b id="th-gh">3号大棚</b></span>
+      </div>
+      <div class="chart-box" id="thChartBox" style="height:118px"></div>
+    </div>
+
+    <div class="module soil">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h16M6 8c-1 2-1.5 4.5-1.5 7a4 4 0 0 0 8 0c0-2.5-.5-5-1.5-7M14 8h4c1 2 1.5 4.5 1.5 7a4 4 0 0 1-8 0c0-2.5.5-5 1.5-7"/></svg></span>
+        <h2 id="soilHead">土壤理化指标</h2><span class="right"><b id="soil-gh">3号大棚</b></span>
+      </div>
+      <div class="fields">
+        <div class="field"><span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff9d6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a5 5 0 0 0-5 5c0 1.8.8 3 1.7 4.2.8 1.1.8 2 .8 3.8h5c0-1.8 0-2.7.8-3.8.9-1.2 1.7-2.4 1.7-4.2a5 5 0 0 0-5-5z"/><path d="M12 7v1.5M10 21h4"/></svg></span><div class="f-main"><div class="k" id="soilK1">土壤温度</div><div class="v"><span class="dv" id="soil-t">22.1</span><small id="soilU1">℃</small></div></div></div>
+        <div class="field"><span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3 4-5 6.5-5 9.5a5 5 0 0 0 10 0C17 9.5 15 7 12 3z"/><path d="M8 20h8"/></svg></span><div class="f-main"><div class="k" id="soilK2">土壤湿度</div><div class="v"><span class="dv" id="soil-h">66</span><small id="soilU2">%</small></div></div></div>
+        <div class="field"><span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span><div class="f-main"><div class="k" id="soilK3">土壤EC</div><div class="v"><span class="dv" id="soil-e">1.3</span><small id="soilU3">mS/cm</small></div></div></div>
+        <div class="field"><span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d4a6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h7M10 3v4a3 3 0 0 1-1 2.2L6.5 11.5A5 5 0 0 0 5 15v1a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-1a5 5 0 0 0-1.5-3.5L15 9.2A3 3 0 0 1 14 7V3"/><path d="M7 18v3M17 18v3"/></svg></span><div class="f-main"><div class="k" id="soilK4">土壤pH</div><div class="v"><span class="dv" id="soil-p">6.6</span><small id="soilU4">—</small></div></div></div>
+        <div class="field wide"><span class="f-ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9d6cd" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l2.5 5H21l-4 4 1.5 5.5L12 14l-6.5 3.5L7 12l-4-4h6.5z"/></svg></span><div class="f-main"><div class="k" id="soilK5">土壤盐分</div><div class="v"><span class="dv" id="soil-s">0.25</span><small id="soilU5">%</small></div></div></div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c2 3 6 3.5 6 8a6 6 0 0 1-12 0c0-4.5 4-5 6-8z"/></svg></span>
+        <h2 id="growHead">每日数据</h2><span class="right"><b id="grow-gh">3号大棚</b></span>
+      </div>
+      <div class="grow-head">
+        <div class="grow-ring">
+          <svg width="84" height="84" viewBox="0 0 100 100">
+            <defs><linearGradient id="rg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7bffae"/><stop offset="1" stop-color="#2fc77a"/></linearGradient></defs>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(150,255,195,.13)" stroke-width="10"/>
+            <circle cx="50" cy="50" r="40" fill="none" stroke="url(#rg)" stroke-width="10" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="25.1" transform="rotate(-90 50 50)" style="filter:drop-shadow(0 0 5px rgba(88,255,156,.8))"/>
+          </svg>
+          <div class="num" id="grow-score">90</div>
+          <div class="lbl" id="growRingLbl">作物生长指数</div>
+        </div>
+        <div class="grow-data">
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><path d="M5 20h14M7 20v-8h4v8M13 20v-5h4v5"/><path d="M9 20l-2-3 2-1 3 2M15 20l-1-4 2-1 2 3"/></svg></span><div class="f-main"><div class="k" id="growK1">今日产量</div><div class="v"><span class="dv" id="grow-y">520</span><small id="growU1">kg</small></div></div></div>
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><div class="f-main"><div class="k" id="growK2">蒸腾量</div><div class="v"><span class="dv" id="grow-tr">2.8</span><small id="growU2">mm</small></div></div></div>
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c2 3 6 3.5 6 8a6 6 0 0 1-12 0c0-4.5 4-5 6-8z"/><path d="M12 20v2"/></svg></span><div class="f-main"><div class="k" id="growK3">叶面积指数</div><div class="v"><span class="dv" id="grow-la">3.2</span><small id="growU3">LAI</small></div></div></div>
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff9d6b" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="7"/><path d="M12 7v5l3 2"/></svg></span><div class="f-main"><div class="k" id="growK4">成熟度</div><div class="v"><span class="dv" id="grow-m">35</span><small id="growU4">%</small></div></div></div>
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffb054" stroke-width="1.8" stroke-linecap="round"><path d="M3 17l7-9 4 4 2-2 5 7z"/><path d="M3 21h18"/></svg></span><div class="f-main"><div class="k" id="growK5">预估增产</div><div class="v">+<span class="dv" id="grow-up">12</span><small id="growU5">%</small></div></div></div>
+          <div class="field"><span class="f-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16v12H4z"/><path d="M8 6V3M16 6V3M4 10h16"/></svg></span><div class="f-main"><div class="k" id="growK6">灌溉量</div><div class="v"><span class="dv" id="grow-ir">28</span><small id="growU6">L/亩</small></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="module">
+      <div class="mhead">
+        <span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M14 2L5 13h6l-1 9 9-12h-6z"/></svg></span>
+        <h2 id="devHead">设备状态</h2><span class="sub" id="devSub">自动滚动</span>
+      </div>
+      <div class="dev-scroll">
+        <div class="dev-list devl-gh">
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><span class="light on"></span><span class="nm">1号风机</span><span class="pm">1450 r/min</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><span class="light off"></span><span class="nm">2号水帘</span><span class="pm">0 MPa</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h10a3 3 0 1 0-3-3M4 12h13a3 3 0 1 1-3 3"/><path d="M4 16h8"/></svg></span><span class="light on"></span><span class="nm">3号卷帘</span><span class="pm">开度 80%</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 4 9 7 13 3-4 7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="light off"></span><span class="nm">4号灌溉阀门</span><span class="pm">0 m³/h</span><span class="st off">关闭</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span><span class="light on"></span><span class="nm">5号补光灯</span><span class="pm">光照 5.0h</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg></span><span class="light off"></span><span class="nm">6号杀虫灯</span><span class="pm">诱虫 32只</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M14 2L5 13h6l-1 9 9-12h-6z"/></svg></span><span class="light on"></span><span class="nm">7号环流风机</span><span class="pm">1.8 A</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg></span><span class="light err"></span><span class="nm">8号施肥机</span><span class="pm">料位异常</span><span class="st err">故障</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span><span class="light on"></span><span class="nm">1号风机</span><span class="pm">1450 r/min</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><span class="light off"></span><span class="nm">2号水帘</span><span class="pm">0 MPa</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h10a3 3 0 1 0-3-3M4 12h13a3 3 0 1 1-3 3"/><path d="M4 16h8"/></svg></span><span class="light on"></span><span class="nm">3号卷帘</span><span class="pm">开度 80%</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 4 9 7 13 3-4 7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="light off"></span><span class="nm">4号灌溉阀门</span><span class="pm">0 m³/h</span><span class="st off">关闭</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span><span class="light on"></span><span class="nm">5号补光灯</span><span class="pm">光照 5.0h</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg></span><span class="light off"></span><span class="nm">6号杀虫灯</span><span class="pm">诱虫 32只</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M14 2L5 13h6l-1 9 9-12h-6z"/></svg></span><span class="light on"></span><span class="nm">7号环流风机</span><span class="pm">1.8 A</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg></span><span class="light err"></span><span class="nm">8号施肥机</span><span class="pm">料位异常</span><span class="st err">故障</span></div>
+        </div>
+        <div class="dev-list devl-farm">
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M3 21V9l6-4 6 4v12M9 21v-6h6v6"/></svg></span><span class="light on"></span><span class="nm">1号灌排闸门</span><span class="pm">开度 65%</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><span class="light on"></span><span class="nm">2号水泵</span><span class="pm">12 m³/h</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h10a3 3 0 1 0-3-3M4 12h13a3 3 0 1 1-3 3"/><path d="M4 16h8"/></svg></span><span class="light off"></span><span class="nm">3号增氧机</span><span class="pm">0 m³/h</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 4 9 7 13 3-4 7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="light on"></span><span class="nm">4号虫情测报灯</span><span class="pm">诱虫 21只</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span><span class="light on"></span><span class="nm">5号水质传感器</span><span class="pm">在线</span><span class="st on">正常</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg></span><span class="light off"></span><span class="nm">6号植保无人机</span><span class="pm">待机</span><span class="st off">待机</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M14 2L5 13h6l-1 9 9-12h-6z"/></svg></span><span class="light on"></span><span class="nm">7号田间摄像头</span><span class="pm">在线</span><span class="st on">正常</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg></span><span class="light err"></span><span class="nm">8号智能施肥机</span><span class="pm">料位异常</span><span class="st err">故障</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M3 21V9l6-4 6 4v12M9 21v-6h6v6"/></svg></span><span class="light on"></span><span class="nm">1号灌排闸门</span><span class="pm">开度 65%</span><span class="st on">开启</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6fd1ff" stroke-width="1.8" stroke-linecap="round"><path d="M12 3c-3.5 4.5-6 7.5-6 11a6 6 0 0 0 12 0c0-3.5-2.5-6.5-6-11z"/></svg></span><span class="light on"></span><span class="nm">2号水泵</span><span class="pm">12 m³/h</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><path d="M4 8h10a3 3 0 1 0-3-3M4 12h13a3 3 0 1 1-3 3"/><path d="M4 16h8"/></svg></span><span class="light off"></span><span class="nm">3号增氧机</span><span class="pm">0 m³/h</span><span class="st off">已停止</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M12 2a7 7 0 0 0-7 7c0 5 4 9 7 13 3-4 7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="light on"></span><span class="nm">4号虫情测报灯</span><span class="pm">诱虫 21只</span><span class="st on">运行中</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ffd76a" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/></svg></span><span class="light on"></span><span class="nm">5号水质传感器</span><span class="pm">在线</span><span class="st on">正常</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8fffbe" stroke-width="1.8" stroke-linecap="round"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg></span><span class="light off"></span><span class="nm">6号植保无人机</span><span class="pm">待机</span><span class="st off">待机</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#58ff9c" stroke-width="1.8" stroke-linecap="round"><path d="M14 2L5 13h6l-1 9 9-12h-6z"/></svg></span><span class="light on"></span><span class="nm">7号田间摄像头</span><span class="pm">在线</span><span class="st on">正常</span></div>
+          <div class="dev"><span class="d-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff6b6b" stroke-width="1.8" stroke-linecap="round"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg></span><span class="light err"></span><span class="nm">8号智能施肥机</span><span class="pm">料位异常</span><span class="st err">故障</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 中间：视图切换 + 智慧大棚 / 智慧农田（水稻田） -->
+  <div class="center">
+    <div class="c-head">
+      <span class="hint" id="viewHint"><span class="tip">园区总览</span> · 点击大棚点位查看对应实时数据，各监测指标随选中大棚联动</span>
+      <div class="view-toggle">
+        <button class="vt-btn" data-view="farm">智慧农田</button>
+        <button class="vt-btn active" data-view="gh">智慧大棚</button>
+      </div>
+      <span class="sel">当前选中 <b id="cur-gh">3号大棚</b></span>
+    </div>
+
+    <!-- 智慧农田：牛头崖镇农田分布地图（按真实乡镇形状，分散农田） -->
+    <div class="farmmap" id="farmMap">
+      <div class="grid2"></div>
+      <svg class="fpoly" viewBox="0 0 1000 638" preserveAspectRatio="none">
+        <!-- 镇界（北戴河区 · 牛头崖镇，西临抚宁留守营、南界洋河、东接北戴河城区/开发区） -->
+        <path class="town-bd" d="M104,86 C148,58 216,42 280,56 C344,70 386,38 452,46 C518,54 576,38 640,52 C700,66 742,92 760,140 C776,186 762,232 774,280 C786,326 768,372 748,414 C730,454 704,486 668,516 C634,544 592,558 546,564 C496,570 450,558 402,550 C350,542 306,556 258,546 C210,536 168,510 138,472 C110,438 94,394 80,348 C66,302 62,254 68,208 C74,164 84,122 104,86 Z"/>
+        <path class="town-bd2" d="M104,86 C148,58 216,42 280,56 C344,70 386,38 452,46 C518,54 576,38 640,52 C700,66 742,92 760,140 C776,186 762,232 774,280 C786,326 768,372 748,414 C730,454 704,486 668,516 C634,544 592,558 546,564 C496,570 450,558 402,550 C350,542 306,556 258,546 C210,536 168,510 138,472 C110,438 94,394 80,348 C66,302 62,254 68,208 C74,164 84,122 104,86 Z" transform="scale(.965) translate(17,11)"/>
+        <!-- 等高线 -->
+        <path class="contour" d="M120,180 C200,170 240,210 320,200 C400,190 440,230 520,220 C600,210 640,250 720,240"/>
+        <path class="contour" d="M600,280 C660,268 700,300 780,288"/>
+        <path class="contour" d="M180,500 C260,490 320,520 420,510 C500,500 540,530 620,520"/>
+        <!-- 河流：戴河（北→南）、洋河（西南界河） -->
+        <path class="river" stroke-width="6" d="M572,70 C584,132 546,188 542,250 C538,312 572,368 562,428 C554,482 572,532 580,566"/>
+        <path class="river" stroke-width="7" d="M70,382 C110,420 152,450 212,470 C282,494 362,510 442,520 C522,530 602,534 682,530"/>
+        <!-- 道路：G205 国道 / 京哈铁路 / 宁海道 -->
+        <path class="road" d="M40,292 C140,284 260,296 380,290 C500,284 620,292 740,286 C820,282 900,290 990,284"/>
+        <path class="rail" d="M30,92 C200,80 400,70 600,74 C750,78 880,86 990,82"/>
+        <path class="road2" d="M470,272 C458,340 470,410 460,478 C454,528 462,560 472,592"/>
+        <!-- 普通分散农田（非监测） -->
+        <polygon class="p-farm" points="150,150 230,140 240,190 165,205"/>
+        <polygon class="p-farm" points="300,120 370,110 375,160 305,170"/>
+        <polygon class="p-farm" points="470,104 540,98 545,148 475,154"/>
+        <polygon class="p-farm" points="120,340 195,330 205,385 130,398"/>
+        <polygon class="p-farm" points="560,320 640,310 650,365 570,378"/>
+        <polygon class="p-farm" points="180,430 255,422 265,478 190,490"/>
+        <polygon class="p-farm" points="640,470 720,460 730,520 650,530"/>
+        <polygon class="p-farm" points="320,560 400,552 410,600 330,612"/>
+        <!-- 监测田块（1~5号，分散全镇） -->
+        <polygon class="fp" data-f="1" points="250,210 330,200 338,262 255,272"></polygon>
+        <polygon class="fp" data-f="2" points="600,170 690,162 696,224 606,232"></polygon>
+        <polygon class="fp" data-f="3" points="720,300 800,292 806,352 726,360"></polygon>
+        <polygon class="fp" data-f="4" points="330,400 420,392 426,454 336,462"></polygon>
+        <polygon class="fp" data-f="5" points="600,430 690,422 696,482 606,490"></polygon>
+      </svg>
+      <!-- 地图标题 -->
+      <div class="map-title"><b>北戴河区<i>·</i>牛头崖镇</b><em>农田分布监测</em></div>
+      <div class="rice-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7bffae" stroke-width="1.6" stroke-linecap="round"><path d="M12 22C7 16 5 12 5 8a7 7 0 0 1 14 0c0 4-2 8-7 14z"/><path d="M12 10l-3-3M12 10l3-3M12 14l-2-2M12 14l2-2"/></svg>牛头崖镇 <b>监测农田 5 块</b></div>
+      <!-- 村庄标注 -->
+      <span class="vlg" style="left:15%;top:16%">蒋营村</span>
+      <span class="vlg" style="left:9%;top:33%">大泥河村</span>
+      <span class="vlg" style="left:13%;top:50%">蒲兰村</span>
+      <span class="vlg" style="left:16%;top:42%">卢王庄</span>
+      <span class="vlg" style="left:22%;top:56%">杨各庄</span>
+      <span class="vlg" style="left:24%;top:62%">枣园村</span>
+      <span class="vlg" style="left:30%;top:70%">狮子河村</span>
+      <span class="vlg" style="left:42%;top:73%">南甸子村</span>
+      <span class="vlg" style="left:53%;top:77%">南新庄村</span>
+      <span class="vlg" style="left:64%;top:52%">太平庄村</span>
+      <span class="vlg hot" style="left:47%;top:44%">牛头崖村<em>镇政府</em></span>
+      <!-- 邻区 -->
+      <span class="vlg out" style="left:84%;top:8%">北戴河城区</span>
+      <span class="vlg out" style="left:92%;top:17%">开发区西区</span>
+      <span class="vlg out" style="left:4%;top:37%">留守营镇</span>
+      <span class="vlg out" style="left:50%;top:93%">南戴河新区</span>
+      <!-- 河流 / 道路名 -->
+      <span class="vlg rv" style="left:56%;top:47%">戴河</span>
+      <span class="vlg rv" style="left:30%;top:79%">洋河</span>
+      <span class="vlg rd" style="left:52%;top:41%">G205</span>
+      <span class="vlg rl" style="left:28%;top:11%">京哈铁路</span>
+      <!-- 监测田块标签 -->
+      <span class="gh f1" data-f="1"><i class="pin warn"></i>1号田<em class="area">12亩</em></span>
+      <span class="gh f2" data-f="2"><i class="pin ok"></i>2号田<em class="area">15亩</em></span>
+      <span class="gh f3 active" data-f="3"><i class="pin alert"></i>3号田<em class="area">6亩</em></span>
+      <span class="gh f4" data-f="4"><i class="pin ok"></i>4号田<em class="area">10亩</em></span>
+      <span class="gh f5" data-f="5"><i class="pin ok"></i>5号田<em class="area">14亩</em></span>
+      <!-- 指北针 -->
+      <div class="north"><svg viewBox="0 0 24 24"><path d="M12 2 L16.5 12.5 L12 10.4 L7.5 12.5 Z" fill="#7bffae"/><path d="M12 22 L16.5 11.5 L12 13.6 L7.5 11.5 Z" fill="rgba(123,255,174,.38)"/></svg>北</div>
+      <div class="legend">
+        <span><i class="l1"></i>告警</span>
+        <span><i class="l2"></i>待办</span>
+        <span><i class="l3"></i>正常</span>
+      </div>
+    </div>
+
+    <!-- 智慧大棚：园区实景地图 + 大棚点位 -->
+    <div class="ghview" id="ghView">
+      <div class="ghmap">
+        <div class="photo"></div>
+        <div class="grid2"></div>
+        <div class="gh-chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7bffae" stroke-width="1.6" stroke-linecap="round"><path d="M3 21V9l6-4 6 4v12M9 21v-6h6v6M9 9h6M9 12h6"/></svg>大棚种植区 <b>5 座棚</b></div>
+        <span class="gh g1" data-gh="1"><i class="pin warn"></i>1号大棚</span>
+        <span class="gh g2" data-gh="2"><i class="pin ok"></i>2号大棚</span>
+        <span class="gh g3 active" data-gh="3"><i class="pin alert"></i>3号大棚</span>
+        <span class="gh g4" data-gh="4"><i class="pin ok"></i>4号大棚</span>
+        <span class="gh g5" data-gh="5"><i class="pin warn"></i>5号大棚</span>
+        <div class="legend">
+          <span><i class="l1"></i>告警</span>
+          <span><i class="l2"></i>待办</span>
+          <span><i class="l3"></i>正常</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">—</div>
+</div>
+</div>
+
+<script>
+/* ================= 任意屏幕自适应 ================= */
+(function(){
+  var stage = document.getElementById('stage');
+  function fit(){
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 970);
+    stage.style.transform = 'scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+
+/* ================= 实时时钟 ================= */
+(function(){
+  var t1 = document.getElementById('clockT1'), t2 = document.getElementById('clockT2');
+  function p(n){ return (n<10?'0':'')+n; }
+  function tick(){
+    var d = new Date();
+    var wd = ['日','一','二','三','四','五','六'][d.getDay()];
+    t1.textContent = p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds())+' 星期'+wd;
+    t2.textContent = d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' · 数据实时刷新';
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ================= Toast ================= */
+var toastTimer = null;
+function showToast(msg){
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2400);
+}
+
+/* ================= 数据：大棚 + 水稻田块 ================= */
+var DATA = { /* 大棚 */
+  1: { env:{t:"25.8",h:"58",c:"480",l:"25000",p:"15"}, soil:{t:"21.5",h:"58",e:"1.1",p:"6.8",s:"0.22"}, grow:{sc:"85",y:"480",tr:"2.5",la:"3.0",m:"30",up:"8",ir:"26"} },
+  2: { env:{t:"26.2",h:"60",c:"470",l:"27000",p:"16"}, soil:{t:"21.8",h:"62",e:"1.2",p:"6.7",s:"0.23"}, grow:{sc:"88",y:"500",tr:"2.6",la:"3.1",m:"32",up:"10",ir:"27"} },
+  3: { env:{t:"26.8",h:"62",c:"460",l:"28000",p:"18"}, soil:{t:"22.1",h:"66",e:"1.3",p:"6.6",s:"0.25"}, grow:{sc:"90",y:"520",tr:"2.8",la:"3.2",m:"35",up:"12",ir:"28"} },
+  4: { env:{t:"25.5",h:"57",c:"490",l:"23000",p:"14"}, soil:{t:"21.2",h:"55",e:"1.0",p:"6.9",s:"0.21"}, grow:{sc:"82",y:"460",tr:"2.4",la:"2.9",m:"28",up:"7",ir:"25"} },
+  5: { env:{t:"26.0",h:"61",c:"465",l:"26500",p:"17"}, soil:{t:"21.9",h:"63",e:"1.25",p:"6.7",s:"0.24"}, grow:{sc:"87",y:"495",tr:"2.7",la:"3.1",m:"33",up:"11",ir:"27"} }
+};
+var FDATA = { /* 水稻田块 */
+  1: { env:{wt:"28.4",mt:"24.6",wl:"6.5",do:"5.2",sp:"38"}, soil:{ph:"6.5",om:"2.4",n:"130",p:"28",k:"160"}, grow:{sc:"86",ti:"24",ph:"78",la:"3.6",m:"55",up:"9",ir:"62"} },
+  2: { env:{wt:"27.9",mt:"24.2",wl:"5.8",do:"5.6",sp:"36"}, soil:{ph:"6.7",om:"2.2",n:"120",p:"25",k:"150"}, grow:{sc:"84",ti:"22",ph:"74",la:"3.4",m:"50",up:"7",ir:"58"} },
+  3: { env:{wt:"29.6",mt:"25.1",wl:"8.2",do:"4.4",sp:"32"}, soil:{ph:"6.2",om:"1.9",n:"105",p:"22",k:"140"}, grow:{sc:"78",ti:"19",ph:"70",la:"3.0",m:"45",up:"5",ir:"75"} },
+  4: { env:{wt:"28.1",mt:"24.4",wl:"5.5",do:"5.8",sp:"40"}, soil:{ph:"6.8",om:"2.6",n:"140",p:"30",k:"170"}, grow:{sc:"88",ti:"26",ph:"80",la:"3.8",m:"60",up:"11",ir:"55"} },
+  5: { env:{wt:"28.8",mt:"24.8",wl:"6.0",do:"5.4",sp:"37"}, soil:{ph:"6.6",om:"2.3",n:"125",p:"27",k:"155"}, grow:{sc:"85",ti:"23",ph:"76",la:"3.5",m:"52",up:"8",ir:"60"} }
+};
+var LBL = {
+  gh: {
+    envHead:'环境监测', envK:['空气温度','空气湿度','CO₂浓度','光照强度','PM2.5'], envU:['℃','%RH','ppm','Lux','μg/m³'],
+    thTitle:'温湿度分析', thL1:'温度', thL2:'湿度',
+    soilTitle:'土壤理化指标', soilK:['土壤温度','土壤湿度','土壤EC','土壤pH','土壤盐分'], soilU:['℃','%','mS/cm','—','%'],
+    growTitle:'每日数据', growRing:'作物生长指数',
+    growK:['今日产量','蒸腾量','叶面积指数','成熟度','预估增产','灌溉量'], growU:['kg','mm','LAI','%','%','L/亩'],
+    devTitle:'设备状态', devSub:'自动滚动', unitLabel:'号大棚'
+  },
+  farm: {
+    envHead:'田块监测', envK:['水温','泥温','水位','溶解氧','叶绿素'], envU:['℃','℃','cm','mg/L','SPAD'],
+    thTitle:'水温水位分析', thL1:'水温', thL2:'水位',
+    soilTitle:'土壤肥力指标', soilK:['土壤pH','有机质','全氮','速效磷','速效钾'], soilU:['—','%','mg/kg','mg/kg','mg/kg'],
+    growTitle:'水稻生长数据', growRing:'长势指数',
+    growK:['分蘖数','株高','叶面积指数','成熟度','预估增产','灌溉量'], growU:['万株/亩','cm','LAI','%','%','m³/亩'],
+    devTitle:'田块设备', devSub:'自动滚动', unitLabel:'号田'
+  }
+};
+var state = { view:'gh', id:3 };
+
+/* ================= 标签切换 ================= */
+function applyLabels(view){
+  var L = LBL[view];
+  document.getElementById('envHead').textContent = L.envHead;
+  document.getElementById('thHead').textContent = L.thTitle;
+  document.getElementById('soilHead').textContent = L.soilTitle;
+  document.getElementById('growHead').textContent = L.growTitle;
+  document.getElementById('growRingLbl').textContent = L.growRing;
+  document.getElementById('devHead').textContent = L.devTitle;
+  document.getElementById('devSub').textContent = L.devSub;
+  for (var i = 1; i <= 5; i++){
+    document.getElementById('envK'+i).textContent = L.envK[i-1];
+    document.getElementById('envU'+i).textContent = L.envU[i-1];
+    document.getElementById('soilK'+i).textContent = L.soilK[i-1];
+    document.getElementById('soilU'+i).textContent = L.soilU[i-1];
+  }
+  for (var j = 1; j <= 6; j++){
+    document.getElementById('growK'+j).textContent = L.growK[j-1];
+    document.getElementById('growU'+j).textContent = L.growU[j-1];
+  }
+}
+
+/* ================= 曲线图绘制 ================= */
+function drawThChart(view, id){
+  var d = view === 'farm' ? FDATA[id] : DATA[id];
+  var s1, s2, l1, l2, u1, u2, c1 = '#58ff9c', c2 = '#6fd1ff';
+  if (view === 'farm'){ s1 = +d.env.wt; s2 = +d.env.wl; l1 = '水温'; l2 = '水位'; u1 = '℃'; u2 = 'cm'; }
+  else { s1 = +d.env.t; s2 = +d.env.h; l1 = '温度'; l2 = '湿度'; u1 = '℃'; u2 = '%'; }
+  var hrs = ['00','02','04','06','08','10','12','14','16','18','20','22'];
+  var v1 = [], v2 = [];
+  for (var i = 0; i < 12; i++){
+    var k = 0.42 + 0.58 * (i / 11);
+    v1.push(+(s1 * k + Math.sin(i * 1.7) * s1 * 0.05).toFixed(1));
+    v2.push(+(s2 * (1.08 - 0.34 * (i / 11)) + Math.cos(i * 1.3) * s2 * 0.05).toFixed(1));
+  }
+  var el = document.getElementById('thChartBox');
+  if (!el || typeof echarts === 'undefined') return;
+  if (!window.__thChart) window.__thChart = echarts.init(el);
+  window.__thChart.setOption({
+    backgroundColor: 'transparent',
+    animationDuration: 480,
+    grid: { left: 6, right: 6, top: 30, bottom: 2, containLabel: true },
+    tooltip: { trigger: 'axis', backgroundColor: 'rgba(4,26,15,.94)', borderColor: 'rgba(120,255,180,.35)', borderWidth: 1,
+      textStyle: { color: '#eafff3', fontSize: 12 }, axisPointer: { lineStyle: { color: 'rgba(88,255,156,.55)' } } },
+    legend: { data: [l1, l2], top: 2, right: 4, itemWidth: 14, itemHeight: 3, icon: 'roundRect',
+      textStyle: { color: '#9fe8bf', fontSize: 11 } },
+    xAxis: { type: 'category', boundaryGap: false, data: hrs,
+      axisLine: { lineStyle: { color: 'rgba(150,255,195,.28)' } },
+      axisTick: { show: false },
+      axisLabel: { color: '#7fb99a', fontSize: 10, margin: 8 } },
+    yAxis: { type: 'value', scale: true,
+      splitLine: { lineStyle: { color: 'rgba(150,255,195,.09)' } },
+      axisLabel: { color: '#7fb99a', fontSize: 10 } },
+    series: [
+      { name: l1, type: 'line', smooth: true, symbol: 'circle', symbolSize: 5, data: v1,
+        lineStyle: { width: 2.6, color: c1, shadowColor: c1, shadowBlur: 9 },
+        itemStyle: { color: c1, borderColor: '#06230f', borderWidth: 1 },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(88,255,156,.32)' }, { offset: 1, color: 'rgba(88,255,156,0)' }]) } },
+      { name: l2, type: 'line', smooth: true, symbol: 'circle', symbolSize: 4, data: v2,
+        lineStyle: { width: 2, color: c2, shadowColor: c2, shadowBlur: 6 },
+        itemStyle: { color: c2, borderColor: '#06230f', borderWidth: 1 },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(111,209,255,.22)' }, { offset: 1, color: 'rgba(111,209,255,0)' }]) } }
+    ]
+  });
+  if (!window.__thChartBound){
+    window.__thChartBound = true;
+    window.addEventListener('resize', function(){ if (window.__thChart) window.__thChart.resize(); });
+  }
+}
+
+/* ================= 数据应用 ================= */
+function applyData(){
+  var view = state.view, id = state.id;
+  var d = view === 'farm' ? FDATA[id] : DATA[id];
+  var un = id + LBL[view].unitLabel;
+  document.getElementById('cur-gh').textContent = un;
+  document.getElementById('env-gh').textContent = un;
+  document.getElementById('th-gh').textContent = un;
+  document.getElementById('soil-gh').textContent = un;
+  document.getElementById('grow-gh').textContent = un;
+  var farm = view === 'farm';
+  document.getElementById('env-t').textContent = farm ? d.env.wt : d.env.t;
+  document.getElementById('env-h').textContent = farm ? d.env.mt : d.env.h;
+  document.getElementById('env-c').textContent = farm ? d.env.wl : d.env.c;
+  document.getElementById('env-l').textContent = farm ? d.env.do : d.env.l;
+  document.getElementById('env-p').textContent = farm ? d.env.sp : d.env.p;
+  document.getElementById('soil-t').textContent = farm ? d.soil.ph : d.soil.t;
+  document.getElementById('soil-h').textContent = farm ? d.soil.om : d.soil.h;
+  document.getElementById('soil-e').textContent = farm ? d.soil.n : d.soil.e;
+  document.getElementById('soil-p').textContent = farm ? d.soil.p : d.soil.p;
+  document.getElementById('soil-s').textContent = farm ? d.soil.k : d.soil.s;
+  document.getElementById('grow-score').textContent = d.grow.sc;
+  document.getElementById('grow-y').textContent = farm ? d.grow.ti : d.grow.y;
+  document.getElementById('grow-tr').textContent = farm ? d.grow.ph : d.grow.tr;
+  document.getElementById('grow-la').textContent = d.grow.la;
+  document.getElementById('grow-m').textContent = d.grow.m;
+  document.getElementById('grow-up').textContent = d.grow.up;
+  document.getElementById('grow-ir').textContent = d.grow.ir;
+  drawThChart(view, id);
+}
+
+/* ================= 选择 ================= */
+function selectGh(n){
+  state.id = n;
+  document.querySelectorAll('.ghmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.gh === n); });
+  applyData();
+}
+function selectField(n){
+  state.id = n;
+  document.querySelectorAll('.farmmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === n); });
+  document.querySelectorAll('.fp').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === n); });
+  applyData();
+}
+
+/* ================= 视图切换 ================= */
+var viewHint = document.getElementById('viewHint');
+function setView(v){
+  state.view = v;
+  document.body.classList.toggle('view-gh', v === 'gh');
+  document.body.classList.toggle('view-farm', v === 'farm');
+  document.querySelectorAll('.vt-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.view === v); });
+  viewHint.innerHTML = v === 'gh'
+    ? '<span class="tip">园区总览</span> · 点击大棚点位查看对应实时数据，各监测指标随选中大棚联动'
+    : '<span class="tip">牛头崖镇</span> · 点击分散农田地块查看对应实时数据，各监测指标随选中田块联动';
+  applyLabels(v);
+  if (v === 'gh'){
+    document.querySelectorAll('.ghmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.gh === state.id); });
+  } else {
+    document.querySelectorAll('.farmmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === state.id); });
+    document.querySelectorAll('.fp').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === state.id); });
+  }
+  applyData();
+}
+document.querySelectorAll('.vt-btn').forEach(function(b){
+  b.addEventListener('click', function(){ setView(b.dataset.view); });
+});
+document.querySelectorAll('.ghmap .gh[data-gh]').forEach(function(el){
+  el.addEventListener('click', function(){ selectGh(+el.dataset.gh); });
+});
+document.querySelectorAll('.farmmap .gh[data-f]').forEach(function(el){
+  el.addEventListener('click', function(){ selectField(+el.dataset.f); });
+});
+document.querySelectorAll('.fp').forEach(function(el){
+  el.addEventListener('click', function(){ selectField(+el.dataset.f); });
+});
+
+/* ================= 顶部按钮 ================= */
+document.getElementById('sysBtn').addEventListener('click', function(){
+  showToast('正在进入系统（请确保「系统-智慧无人农场操作管理.html」与本大屏在同一文件夹）…');
+  setTimeout(function(){ window.open('系统-智慧无人农场操作管理.html', '_blank'); }, 600);
+});
+document.getElementById('acqBtn').addEventListener('click', function(){
+  showToast('数据采集任务已启动，正在同步园区传感数据 …');
+});
+
+/* ================= 初始化：默认智慧大棚 ================= */
+setView('gh');
+</script>
+<script src="js/echarts.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/common.js"></script>
+<script>
+/* ================= 公共组件：自适应 / 时钟 / Toast ================= */
+UI.fitStage('stage');
+UI.startClock('clockT1', 'clockT2');
+
+/* ================= 数据（公共数据层） ================= */
+var DATA = FarmData.DATA, FDATA = FarmData.FDATA, LBL = FarmData.LBL;
+var state = { view:'gh', id:3 };
+
+/* ================= 标签切换 ================= */
+function applyLabels(view){
+  var L = LBL[view];
+  document.getElementById('envHead').textContent = L.envHead;
+  document.getElementById('thHead').textContent = L.thTitle;
+  document.getElementById('soilHead').textContent = L.soilTitle;
+  document.getElementById('growHead').textContent = L.growTitle;
+  document.getElementById('growRingLbl').textContent = L.growRing;
+  document.getElementById('devHead').textContent = L.devTitle;
+  document.getElementById('devSub').textContent = L.devSub;
+  for (var i = 1; i <= 5; i++){
+    document.getElementById('envK'+i).textContent = L.envK[i-1];
+    document.getElementById('envU'+i).textContent = L.envU[i-1];
+    document.getElementById('soilK'+i).textContent = L.soilK[i-1];
+    document.getElementById('soilU'+i).textContent = L.soilU[i-1];
+  }
+  for (var j = 1; j <= 6; j++){
+    document.getElementById('growK'+j).textContent = L.growK[j-1];
+    document.getElementById('growU'+j).textContent = L.growU[j-1];
+  }
+}
+
+/* ================= 曲线图绘制 ================= */
+function drawThChart(view, id){
+  var d = view === 'farm' ? FDATA[id] : DATA[id];
+  var s1, s2, l1, l2, u1, u2, c1 = '#58ff9c', c2 = '#6fd1ff';
+  if (view === 'farm'){ s1 = +d.env.wt; s2 = +d.env.wl; l1 = '水温'; l2 = '水位'; u1 = '℃'; u2 = 'cm'; }
+  else { s1 = +d.env.t; s2 = +d.env.h; l1 = '温度'; l2 = '湿度'; u1 = '℃'; u2 = '%'; }
+  var hrs = ['00','02','04','06','08','10','12','14','16','18','20','22'];
+  var v1 = [], v2 = [];
+  for (var i = 0; i < 12; i++){
+    var k = 0.42 + 0.58 * (i / 11);
+    v1.push(+(s1 * k + Math.sin(i * 1.7) * s1 * 0.05).toFixed(1));
+    v2.push(+(s2 * (1.08 - 0.34 * (i / 11)) + Math.cos(i * 1.3) * s2 * 0.05).toFixed(1));
+  }
+  var el = document.getElementById('thChartBox');
+  if (!el || typeof echarts === 'undefined') return;
+  if (!window.__thChart) window.__thChart = echarts.init(el);
+  window.__thChart.setOption({
+    backgroundColor: 'transparent',
+    animationDuration: 480,
+    grid: { left: 6, right: 6, top: 30, bottom: 2, containLabel: true },
+    tooltip: { trigger: 'axis', backgroundColor: 'rgba(4,26,15,.94)', borderColor: 'rgba(120,255,180,.35)', borderWidth: 1,
+      textStyle: { color: '#eafff3', fontSize: 12 }, axisPointer: { lineStyle: { color: 'rgba(88,255,156,.55)' } } },
+    legend: { data: [l1, l2], top: 2, right: 4, itemWidth: 14, itemHeight: 3, icon: 'roundRect',
+      textStyle: { color: '#9fe8bf', fontSize: 11 } },
+    xAxis: { type: 'category', boundaryGap: false, data: hrs,
+      axisLine: { lineStyle: { color: 'rgba(150,255,195,.28)' } },
+      axisTick: { show: false },
+      axisLabel: { color: '#7fb99a', fontSize: 10, margin: 8 } },
+    yAxis: { type: 'value', scale: true,
+      splitLine: { lineStyle: { color: 'rgba(150,255,195,.09)' } },
+      axisLabel: { color: '#7fb99a', fontSize: 10 } },
+    series: [
+      { name: l1, type: 'line', smooth: true, symbol: 'circle', symbolSize: 5, data: v1,
+        lineStyle: { width: 2.6, color: c1, shadowColor: c1, shadowBlur: 9 },
+        itemStyle: { color: c1, borderColor: '#06230f', borderWidth: 1 },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(88,255,156,.32)' }, { offset: 1, color: 'rgba(88,255,156,0)' }]) } },
+      { name: l2, type: 'line', smooth: true, symbol: 'circle', symbolSize: 4, data: v2,
+        lineStyle: { width: 2, color: c2, shadowColor: c2, shadowBlur: 6 },
+        itemStyle: { color: c2, borderColor: '#06230f', borderWidth: 1 },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(111,209,255,.22)' }, { offset: 1, color: 'rgba(111,209,255,0)' }]) } }
+    ]
+  });
+  if (!window.__thChartBound){
+    window.__thChartBound = true;
+    window.addEventListener('resize', function(){ if (window.__thChart) window.__thChart.resize(); });
+  }
+}
+
+/* ================= 数据应用 ================= */
+function applyData(){
+  var view = state.view, id = state.id;
+  var d = view === 'farm' ? FDATA[id] : DATA[id];
+  var un = id + LBL[view].unitLabel;
+  document.getElementById('cur-gh').textContent = un;
+  document.getElementById('env-gh').textContent = un;
+  document.getElementById('th-gh').textContent = un;
+  document.getElementById('soil-gh').textContent = un;
+  document.getElementById('grow-gh').textContent = un;
+  var farm = view === 'farm';
+  document.getElementById('env-t').textContent = farm ? d.env.wt : d.env.t;
+  document.getElementById('env-h').textContent = farm ? d.env.mt : d.env.h;
+  document.getElementById('env-c').textContent = farm ? d.env.wl : d.env.c;
+  document.getElementById('env-l').textContent = farm ? d.env.do : d.env.l;
+  document.getElementById('env-p').textContent = farm ? d.env.sp : d.env.p;
+  document.getElementById('soil-t').textContent = farm ? d.soil.ph : d.soil.t;
+  document.getElementById('soil-h').textContent = farm ? d.soil.om : d.soil.h;
+  document.getElementById('soil-e').textContent = farm ? d.soil.n : d.soil.e;
+  document.getElementById('soil-p').textContent = farm ? d.soil.p : d.soil.p;
+  document.getElementById('soil-s').textContent = farm ? d.soil.k : d.soil.s;
+  document.getElementById('grow-score').textContent = d.grow.sc;
+  document.getElementById('grow-y').textContent = farm ? d.grow.ti : d.grow.y;
+  document.getElementById('grow-tr').textContent = farm ? d.grow.ph : d.grow.tr;
+  document.getElementById('grow-la').textContent = d.grow.la;
+  document.getElementById('grow-m').textContent = d.grow.m;
+  document.getElementById('grow-up').textContent = d.grow.up;
+  document.getElementById('grow-ir').textContent = d.grow.ir;
+  drawThChart(view, id);
+}
+
+/* ================= 选择 ================= */
+function selectGh(n){
+  state.id = n;
+  document.querySelectorAll('.ghmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.gh === n); });
+  applyData();
+}
+function selectField(n){
+  state.id = n;
+  document.querySelectorAll('.farmmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === n); });
+  document.querySelectorAll('.fp').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === n); });
+  applyData();
+}
+
+/* ================= 视图切换 ================= */
+var viewHint = document.getElementById('viewHint');
+function setView(v){
+  state.view = v;
+  document.body.classList.toggle('view-gh', v === 'gh');
+  document.body.classList.toggle('view-farm', v === 'farm');
+  document.querySelectorAll('.vt-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.view === v); });
+  viewHint.innerHTML = v === 'gh'
+    ? '<span class="tip">园区总览</span> · 点击大棚点位查看对应实时数据，各监测指标随选中大棚联动'
+    : '<span class="tip">牛头崖镇</span> · 点击分散农田地块查看对应实时数据，各监测指标随选中田块联动';
+  applyLabels(v);
+  if (v === 'gh'){
+    document.querySelectorAll('.ghmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.gh === state.id); });
+  } else {
+    document.querySelectorAll('.farmmap .gh').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === state.id); });
+    document.querySelectorAll('.fp').forEach(function(x){ x.classList.toggle('active', +x.dataset.f === state.id); });
+  }
+  applyData();
+}
+document.querySelectorAll('.vt-btn').forEach(function(b){
+  b.addEventListener('click', function(){ setView(b.dataset.view); });
+});
+document.querySelectorAll('.ghmap .gh[data-gh]').forEach(function(el){
+  el.addEventListener('click', function(){ selectGh(+el.dataset.gh); });
+});
+document.querySelectorAll('.farmmap .gh[data-f]').forEach(function(el){
+  el.addEventListener('click', function(){ selectField(+el.dataset.f); });
+});
+document.querySelectorAll('.fp').forEach(function(el){
+  el.addEventListener('click', function(){ selectField(+el.dataset.f); });
+});
+
+/* ================= 顶部按钮（同标签页跳转） ================= */
+document.getElementById('sysBtn').addEventListener('click', function(){
+  UI.showToast('正在进入智慧无人农场操作管理系统 …');
+  setTimeout(function(){ location.href = '系统-智慧无人农场操作管理.html'; }, 500);
+});
+document.getElementById('acqBtn').addEventListener('click', function(){
+  UI.showToast('数据采集任务已启动，正在同步园区传感数据 …');
+});
+
+/* ================= 小农（悬浮智能体） ================= */
+UI.initAI({
+  theme: 'dark',
+  getCtx: function(){
+    return { kind: state.view, id: state.id, name: state.id + (state.view === 'gh' ? '号大棚' : '号田') };
+  }
+});
+
+/* ================= 初始化：默认智慧大棚 ================= */
+setView('gh');
+</script>
+</body>
+</html>

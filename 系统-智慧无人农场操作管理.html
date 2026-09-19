@@ -1,0 +1,1327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="智慧无人农场操作管理系统，覆盖地块、设备、农事、灌溉、预警与生产数据管理。">
+<meta name="theme-color" content="#f3f8f5">
+<title>智慧无人农场 · 操作管理系统</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2303160c'/%3E%3Cpath d='M46 15C30 17 19 27 18 45c11 1 22-4 27-14-8 5-15 8-22 9 7-4 14-10 23-25Z' fill='%2358ff9c'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body class="sys-theme">
+<div class="app">
+  <div class="topbar">
+    <div class="logo" id="logoHome" title="回到工作台">
+      <div class="mark"><svg width="30" height="21" viewBox="0 0 1478 1024" fill="#A1CB3C" xmlns="http://www.w3.org/2000/svg"><path d="M1094.165252 1.071075a402.637054 402.637054 0 0 1 130.560556 11.859472 598.079026 598.079026 0 0 1 113.967931 41.162473 355.890525 355.890525 0 0 1 80.729501 52.224222q30.845264 27.707556 30.845263 46.693348t-23.718944 22.974403q-23.718944 3.93543-59.350542 7.126319a710.823783 710.823783 0 0 0-78.336333 11.859472 190.655638 190.655638 0 0 0-80.729501 38.769306 450.447213 450.447213 0 0 0-48.288792 41.960195q-22.974403 22.974403-45.895625 44.30018a554.62975 554.62975 0 0 1-47.49107 39.567028 188.528379 188.528379 0 0 1-53.181489 27.707556q-14.252639 4.733153-34.833875 9.519487a131.996456 131.996456 0 0 1-43.502458 2.393167 133.804627 133.804627 0 0 1-47.49107-15.050362 139.65459 139.65459 0 0 1-46.693347-42.545191 192.14472 192.14472 0 0 0-24.516667 45.097903 501.607805 501.607805 0 0 0-18.188069 56.212834q-7.924042 30.047541-13.454917 62.541431t-8.721764 60.945986q-3.190889 23.718944-4.733153 59.350542t-0.797722 70.412292q0.797722 34.833875 3.93543 64.083694a133.325993 133.325993 0 0 0 9.519487 41.960195 51.905133 51.905133 0 0 1 7.924042 23.718944 20.36851 20.36851 0 0 1-7.924042 15.050362 46.321077 46.321077 0 0 1-30.047542 7.126319 57.010556 57.010556 0 0 1-34.036153-7.126319 19.836695 19.836695 0 0 1-8.721764-15.050362 32.706616 32.706616 0 0 1 6.328597-22.176681 109.819775 109.819775 0 0 0 10.264028-37.227042 322.226642 322.226642 0 0 0 1.595445-45.895625q-0.797722-24.516666-2.393167-49.831056t-1.595445-49.086514a742.998584 742.998584 0 0 0-49.086515-85.462653 628.658383 628.658383 0 0 0-52.224222-66.476861 158.002204 158.002204 0 0 1-40.36475 56.957374 134.176897 134.176897 0 0 1-46.693348 26.112112 138.91005 138.91005 0 0 1-45.097902 6.328597 236.604445 236.604445 0 0 1-37.227043-3.93543 175.498914 175.498914 0 0 1-53.819667-18.18807q-25.314389-13.454917-50.628777-30.047541t-51.4265-35.631598a441.40636 441.40636 0 0 0-53.181489-33.23843 180.817063 180.817063 0 0 0-84.664931-25.314389 541.813011 541.813011 0 0 0-79.134056 2.393167 419.28286 419.28286 0 0 1-58.499638 3.190889q-22.974403-0.797722-22.974403-21.272595a91.950795 91.950795 0 0 1 26.112111-52.224223 358.283692 358.283692 0 0 1 69.614569-62.541431 530.166265 530.166265 0 0 1 102.108459-55.415112 424.175557 424.175557 0 0 1 123.700144-31.057989 438.002744 438.002744 0 0 1 165.394431 10.264027 245.592117 245.592117 0 0 1 102.853 56.212834 159.544467 159.544467 0 0 1 46.693347 83.867208 206.610085 206.610085 0 0 1-3.190889 94.98214 671.203574 671.203574 0 0 1 99.715292 116.999276 579.678231 579.678231 0 0 1 39.567028-156.672667q12.657194-26.909833 23.718944-45.895625t26.909834-41.162473a206.663267 206.663267 0 0 1-26.112111-98.119847 167.947143 167.947143 0 0 1 30.047541-98.119847 242.294864 242.294864 0 0 1 95.72668-78.336334 444.490886 444.490886 0 0 1 170.925306-38.769305z m-471.666627 435.237307a433.375955 433.375955 0 0 0-186.773389-98.119847 425.824183 425.824183 0 0 0-202.568292 4.733152q-3.190889 0-1.595445 0.797722a11.06175 11.06175 0 0 0 4.733153 0.797723 780.544716 780.544716 0 0 1 93.386694-3.93543 379.130836 379.130836 0 0 1 95.726681 14.252639 448.426316 448.426316 0 0 1 95.72668 39.567028 442.948623 442.948623 0 0 1 93.386695 70.412291z m580.848224-300.741321a11.008568 11.008568 0 0 0 4.733153-0.797722q1.595445-0.797722-3.190889-0.797723a377.588573 377.588573 0 0 0-208.89689 35.631598 486.77017 486.77017 0 0 0-164.862616 136.889153l15.954447 26.909834a546.439801 546.439801 0 0 1 87.85582-96.524403 428.164169 428.164169 0 0 1 91.79125-60.148264 386.576244 386.576244 0 0 1 90.993528-30.845264 554.257479 554.257479 0 0 1 85.462653-10.264027zM377.172416 944.404329q-12.657194-11.06175 7.924042-26.112111a283.138248 283.138248 0 0 1 60.148264-30.845264q39.567028-15.954447 89.398083-32.440708t95.726681-29.303001a39.673391 39.673391 0 0 1 32.440708 0.797723 101.683007 101.683007 0 0 1 22.176681 18.188069 149.812255 149.812255 0 0 0 25.314389 21.272595 97.215762 97.215762 0 0 0 87.058098 0 225.542695 225.542695 0 0 0 26.112111-20.581236 159.544467 159.544467 0 0 1 22.176681-17.390347 41.05611 41.05611 0 0 1 31.908893-2.393167q45.895625 12.657194 96.524403 30.047542t90.993528 34.036153a301.007228 301.007228 0 0 1 60.945986 31.908893q20.581236 15.050361 4.733153 22.974403a383.278992 383.278992 0 0 1-102.108459 34.036153 1149.145617 1149.145617 0 0 1-139.28232 19.783514q-75.198626 6.328597-155.130404 6.328598t-151.141792-7.12632a934.239219 934.239219 0 0 1-126.625126-20.581236 210.332789 210.332789 0 0 1-79.2936-32.600253z"/></svg></div>
+      <div>
+        <div class="t1">智慧无人农场操作管理系统</div>
+      </div>
+    </div>
+    <div class="right">
+      <span id="sysClock">----</span>
+      <span class="sep"></span>
+      <span>智慧无人农场示范基地 · 北戴河区牛头崖镇</span>
+      <span class="sep"></span>
+      <div class="user"><span class="avatar">管</span>管理员 · 张工</div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="sidebar">
+      <ul class="nav">
+        <li data-p="p0" class="active"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>工作台</li>
+        <li data-p="p1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>数据监控</li>
+        <li data-p="p2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>设备管理<span class="badge r" id="navDevBadge">2</span></li>
+        <li data-p="p3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg>告警管理<span class="badge y" id="navAlarmBadge">4</span></li>
+        <li data-p="p4"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg>农事管理</li>
+        <li data-p="p5"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg>报表统计</li>
+        <li data-p="p6"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14.2 3h-4l-.4 2.7a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2l.4 2.7h4l.4-2.7a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z"/></svg>系统管理</li>
+      </ul>
+      <div class="foot">
+        <div class="back" id="backDash"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 5l-7 7 7 7"/></svg>返回可视化大屏</div>
+      </div>
+    </div>
+
+    <div class="main">
+      <!-- ================= 工作台 p0 ================= -->
+      <div class="page active" id="p0">
+        <div class="page-title"><h1>工作台</h1><span class="desc">今日园区运营总览 · 数据实时汇总</span></div>
+        <div class="dash-kpis" id="p0Kpis"></div>
+        <div class="quick-row">
+          <div class="qk" data-goto="p2"><span class="qi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>新增设备</div>
+          <div class="qk" data-goto="p4"><span class="qi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></span>登记农事</div>
+          <div class="qk" data-goto="p3"><span class="qi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v5M12 17.5v.5"/></svg></span>处置告警<span class="sel-info" id="qkAlarm" style="color:#dc2626;font-weight:700"></span></div>
+          <div class="qk" data-goto="p5"><span class="qi"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></span>查看统计</div>
+        </div>
+        <div class="card tcard"><div class="ch"><span class="dot"></span><h3>数据汇总</h3><span class="more">大棚 + 农田 统一台账</span></div>
+          <div class="tbwrap tall"><table class="tb" id="sumTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="sumAll"></th>
+            <th>监测对象</th><th>类别</th><th>关键测点</th><th>长势</th><th>状态</th><th style="width:150px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="grid2">
+          <div class="card"><div class="ch"><span class="dot" style="background:#ef4444"></span><h3>告警速览</h3><span class="more" id="warnMore" style="cursor:pointer;color:#16a34a">进入告警管理 →</span></div>
+            <div class="tbwrap" style="padding:6px 16px 12px"><table class="tb"><thead><tr><th style="width:64px">级别</th><th>告警内容</th><th style="width:76px">时间</th></tr></thead><tbody id="warnList"></tbody></table></div>
+          </div>
+          <div class="card"><div class="ch"><span class="dot" style="background:#22c55e"></span><h3>园区动态</h3></div>
+            <div class="tbwrap" style="padding:6px 16px 12px"><table class="tb"><thead><tr><th>事件</th><th style="width:76px">时间</th></tr></thead><tbody id="dynList"></tbody></table></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 数据监控 p1 ================= -->
+      <div class="page" id="p1">
+        <div class="page-title"><h1>数据监控</h1><span class="desc">大棚 / 农田实时测点数据，按对象与测点筛选</span></div>
+        <div class="card filter">
+          <div class="f-item">监测对象：<select class="inp" id="mObj"></select></div>
+          <div class="f-item">测点：<select class="inp" id="mPoint"></select></div>
+          <div class="f-item">数据范围：<select class="inp" id="mRange"><option>实时</option><option>近24小时</option><option>近7天</option></select></div>
+          <div class="sp"></div>
+          <button class="btn primary" id="mQuery">查询</button>
+          <button class="btn plain" id="mReset">重置</button>
+          <button class="btn plain" id="mExport">导出 CSV</button>
+        </div>
+        <div class="chart-box"><div class="bars" id="mBars"></div></div>
+        <div class="card tcard"><div class="ch"><span class="dot"></span><h3 id="mTbTitle">实时数据明细</h3><span class="more">勾选后可批量导出</span></div>
+          <div class="bulk-bar" id="mBulk"><span>已选 <b id="mCnt">0</b> 条</span><button class="btn primary sm" id="mBulkExport">批量导出</button><span class="sp"></span><button class="btn text danger" id="mBulkClear">取消选择</button></div>
+          <div class="tbwrap tall"><table class="tb" id="mTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="mAll"></th>
+            <th>时间</th><th>监测对象</th><th>测点</th><th>当前值</th><th>状态</th><th style="width:80px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ================= 设备管理 p2 ================= -->
+      <div class="page" id="p2">
+        <div class="page-title"><h1>设备管理</h1><span class="desc">大棚 + 农田设备统一台账，支持新增、启停、维护、删除</span></div>
+        <div class="card filter">
+          <div class="f-item">设备类别：<select class="inp" id="devCat"><option value="all">全部设备</option><option value="gh">大棚设备</option><option value="farm">农田设备</option></select></div>
+          <div class="f-item">状态：<select class="inp" id="devSt"><option value="all">全部状态</option><option value="on">运行中</option><option value="off">已停止</option><option value="err">故障</option></select></div>
+          <div class="sp"></div>
+          <div class="toolbar">
+            <button class="btn primary" id="devAdd">＋ 新增设备</button>
+            <button class="btn plain" id="devReset">重置</button>
+            <button class="btn plain" id="devExport">导出</button>
+            <button class="btn danger" id="devDel">批量删除</button>
+          </div>
+        </div>
+        <div class="bulk-bar" id="devBulk"><span>已选 <b id="devCnt">0</b> 台设备</span><button class="btn plain sm" id="devBulkOn">批量启动</button><button class="btn plain sm" id="devBulkOff">批量停止</button><span class="sp"></span><button class="btn text danger" id="devBulkClear">取消选择</button></div>
+        <div class="card tcard"><div class="ch"><span class="dot"></span><h3>设备列表</h3><span class="more" id="devMore">共 16 台 · 2 台故障</span></div>
+          <div class="tbwrap tall"><table class="tb" id="devTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="devAll"></th>
+            <th>设备名称</th><th>位置</th><th>类别</th><th>运行参数</th><th>状态</th><th>启停</th><th style="width:190px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ================= 告警管理 p3 ================= -->
+      <div class="page" id="p3">
+        <div class="page-title"><h1>告警管理</h1><span class="desc">分级处置、闭环管理：发现问题 → 人工处置 → 记录归档</span></div>
+        <div class="alarm-cfg">
+          <div class="card cfg"><div class="ck">空气温度上限</div><div class="cv">32<small>℃</small></div></div>
+          <div class="card cfg"><div class="ck">空气温度下限</div><div class="cv">8<small>℃</small></div></div>
+          <div class="card cfg"><div class="ck">土壤湿度下限</div><div class="cv">55<small>%</small></div></div>
+          <div class="card cfg"><div class="ck">CO₂浓度上限</div><div class="cv">800<small>ppm</small></div></div>
+        </div>
+        <div class="seg" id="alarmSeg">
+          <button data-t="todo" class="active">待处置 <b id="segTodo"></b></button>
+          <button data-t="done">已处置 <b id="segDone"></b></button>
+        </div>
+        <div class="card filter">
+          <div class="f-item">级别：<select class="inp" id="alarmLv"><option value="all">全部级别</option><option>紧急</option><option>预警</option></select></div>
+          <div class="f-item">类型：<select class="inp" id="alarmType"><option value="all">全部类型</option><option>环境越限</option><option>设备故障</option><option>气象预警</option></select></div>
+          <div class="sp"></div>
+          <div class="toolbar">
+            <button class="btn primary" id="alarmHandle">批量处置</button>
+            <button class="btn plain" id="alarmReset">重置</button>
+            <button class="btn plain" id="alarmExport">导出</button>
+          </div>
+        </div>
+        <div class="card tcard"><div class="ch"><span class="dot" style="background:#ef4444"></span><h3>告警列表</h3><span class="more" id="alarmMore"></span></div>
+          <div class="tbwrap mid"><table class="tb" id="alarmTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="alarmAll"></th>
+            <th>级别</th><th>类型</th><th>告警内容</th><th>位置</th><th>发生时间</th><th>状态</th><th style="width:150px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ================= 农事管理 p4 ================= -->
+      <div class="page" id="p4">
+        <div class="page-title"><h1>农事管理</h1><span class="desc">农事台账登记与查询，自动并入每日报表</span></div>
+        <div class="card filter">
+          <div class="f-item">位置：<select class="inp" id="farmLoc"><option value="all">全部位置</option><option>1号大棚</option><option>2号大棚</option><option>3号大棚</option><option>1号田</option><option>2号田</option><option>3号田</option></select></div>
+          <div class="f-item">类型：<select class="inp" id="farmType"><option value="all">全部类型</option><option>打药</option><option>施肥</option><option>灌溉</option><option>采收</option><option>整地</option></select></div>
+          <div class="sp"></div>
+          <div class="toolbar">
+            <button class="btn primary" id="farmAdd">＋ 新增登记</button>
+            <button class="btn plain" id="farmReset">重置</button>
+            <button class="btn plain" id="farmExport">导出</button>
+            <button class="btn danger" id="farmDel">批量删除</button>
+          </div>
+        </div>
+        <div class="bulk-bar" id="farmBulk"><span>已选 <b id="farmCnt">0</b> 条记录</span><button class="btn plain sm" id="farmBulkExport">批量导出</button><span class="sp"></span><button class="btn text danger" id="farmBulkClear">取消选择</button></div>
+        <div class="card tcard"><div class="ch"><span class="dot"></span><h3>农事台账</h3><span class="more" id="farmMore"></span></div>
+          <div class="tbwrap tall"><table class="tb" id="farmTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="farmAll"></th>
+            <th>时间</th><th>位置</th><th>农事类型</th><th>操作人</th><th>用量</th><th>备注</th><th style="width:110px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+
+      <!-- ================= 报表统计 p5 ================= -->
+      <div class="page" id="p5">
+        <div class="page-title"><h1>报表统计</h1><span class="desc">每日报表 + 产量/告警/设备统计分析</span></div>
+        <div class="seg" id="rptSeg">
+          <button data-t="daily" class="active">每日报表</button>
+          <button data-t="stat">统计分析</button>
+        </div>
+
+        <!-- 每日报表 -->
+        <div class="subpage" id="rptDaily">
+          <div class="card filter">
+            <div class="f-item">报表日期：<input type="date" class="inp" id="rptDate" value="2026-09-11"></div>
+            <div class="f-item">监测对象：
+              <div class="msel" id="rptObjSel">
+                <div class="ms-btn"><span class="ms-txt" id="rptObjTxt">全部</span><span class="ms-arr"></span></div>
+                <div class="ms-list" id="rptObjList"></div>
+              </div>
+            </div>
+            <div class="sp"></div>
+            <button class="btn primary" id="rptGen">生成今日报表</button>
+            <button class="btn plain" id="rptReset">重置</button>
+            <button class="btn plain" id="rptExport">导出 Excel</button>
+          </div>
+          <div class="rpt-mini" id="rptMinis"></div>
+          <div class="grid2">
+            <div class="card tcard"><div class="ch"><span class="dot"></span><h3>环境记录</h3><span class="more">日均 / 最高 / 最低</span></div>
+              <div class="tbwrap"><table class="tb"><thead><tr><th>测点</th><th>日均值</th><th>最高值</th><th>时刻</th><th>最低值</th><th>时刻</th><th>超阈值</th></tr></thead><tbody id="rptEnv"></tbody></table></div>
+            </div>
+            <div>
+              <div class="card tcard" style="margin-bottom:15px"><div class="ch"><span class="dot"></span><h3>设备运行</h3><span class="more">启停 / 能耗</span></div>
+                <div class="tbwrap"><table class="tb"><thead><tr><th>设备</th><th>启停</th><th>时长</th><th>能耗</th></tr></thead><tbody id="rptDev"></tbody></table></div>
+              </div>
+              <div class="card tcard"><div class="ch"><span class="dot"></span><h3>农事操作</h3><span class="more">今日作业</span></div>
+                <div class="tbwrap"><table class="tb"><thead><tr><th>时间</th><th>农事</th><th>用量</th><th>操作人</th></tr></thead><tbody id="rptFarm"></tbody></table></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 统计分析 -->
+        <div class="subpage" id="rptStat" style="display:none">
+          <div class="st-cards">
+            <div class="card st-card"><div class="st-t"><span class="i" style="background:#16a34a"></span>本周累计产量</div><div class="st-v">3,420<small>kg</small></div><div class="st-sub">环比上周 +8.4%</div></div>
+            <div class="card st-card"><div class="st-t"><span class="i" style="background:#ef4444"></span>待处置告警</div><div class="st-v" id="stAlarmNum">4<small>条</small></div><div class="st-sub">紧急 2 · 预警 2</div></div>
+            <div class="card st-card"><div class="st-t"><span class="i" style="background:#f59e0b"></span>设备在线率</div><div class="st-v">87.5<small>%</small></div><div class="st-sub">14 / 16 台在线</div></div>
+          </div>
+          <div class="grid3">
+            <div class="card"><div class="ch"><span class="dot"></span><h3>近 7 天产量趋势</h3><span class="more">kg / 天</span></div>
+              <div class="bars" id="stYieldBars" style="height:172px"></div>
+            </div>
+            <div class="card"><div class="ch"><span class="dot"></span><h3>作物产量占比</h3></div>
+              <div class="donut-wrap" id="stDonut" style="height:172px;padding:0"></div>
+            </div>
+            <div class="card"><div class="ch"><span class="dot"></span><h3>告警处置分布</h3></div>
+              <div class="donut-wrap" id="stAlarmDonut" style="height:172px;padding:0"></div>
+            </div>
+          </div>
+          <div class="card"><div class="ch"><span class="dot"></span><h3>设备运行状态分布</h3><span class="more">台数</span></div>
+            <div class="line-box" id="stDevBox" style="height:192px"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= 系统管理 p6 ================= -->
+      <div class="page" id="p6">
+        <div class="page-title"><h1>系统管理</h1><span class="desc">用户角色、操作日志、测点与数据管理</span></div>
+        <div class="grid2">
+          <div class="card tcard"><div class="ch"><span class="dot"></span><h3>用户与角色权限</h3><span class="more" id="userMore"></span></div>
+            <div class="card filter" style="margin-bottom:0;border:none;box-shadow:none;padding:10px 14px 4px">
+              <button class="btn primary sm" id="userAdd">＋ 新增用户</button>
+              <button class="btn danger sm" id="userDel">批量删除</button>
+            </div>
+            <div class="tbwrap"><table class="tb" id="userTb"><thead><tr>
+              <th style="width:34px"><input type="checkbox" class="chk" id="userAll"></th>
+              <th>用户名</th><th>角色</th><th>权限范围</th><th>最近登录</th><th style="width:110px">操作</th>
+            </tr></thead><tbody></tbody></table></div>
+          </div>
+          <div class="card tcard"><div class="ch"><span class="dot"></span><h3>操作日志审计</h3><span class="more" id="logMore"></span></div>
+            <div class="card filter" style="margin-bottom:0;border:none;box-shadow:none;padding:10px 14px 4px">
+              <button class="btn plain sm" id="logExport">导出日志</button>
+              <button class="btn plain sm" id="logClear">清空日志</button>
+            </div>
+            <div class="tbwrap"><table class="tb" id="logTb"><thead><tr><th>时间</th><th>用户</th><th>操作</th></tr></thead><tbody></tbody></table></div>
+          </div>
+        </div>
+        <div class="card tcard"><div class="ch"><span class="dot"></span><h3>测点管理</h3><span class="more" id="pointMore"></span></div>
+          <div class="tbwrap"><table class="tb" id="pointTb"><thead><tr>
+            <th style="width:34px"><input type="checkbox" class="chk" id="pointAll"></th>
+            <th>测点</th><th>所属位置</th><th>采集频率</th><th>在线状态</th><th>今日采集量</th><th style="width:80px">操作</th>
+          </tr></thead><tbody></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/echarts.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/common.js"></script>
+<script>
+/* ================= 系统实时时钟 ================= */
+(function(){
+  var el = document.getElementById('sysClock');
+  function p(n){ return (n<10?'0':'')+n; }
+  function tick(){
+    var d = new Date();
+    var wd = ['日','一','二','三','四','五','六'][d.getDay()];
+    el.textContent = d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' 周'+wd+' '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+var FD = window.FarmData;
+var DATA = FD.DATA, FDATA = FD.FDATA, DEV = FD.DEVICES, ALARMS = FD.ALARMS.slice(),
+    FARMS = FD.FARMS.slice(), USERS = FD.USERS.slice(), LOGS = FD.LOGS.slice(), POINTS = FD.POINTS.slice(),
+    CROPS = FD.CROPS, REPORT = FD.REPORT;
+var sysCtx = { kind:'gh', id:3, name:'3号大棚' };
+
+/* ================= 菜单切换 ================= */
+function goto(p){
+  document.querySelectorAll('.nav li').forEach(function(x){ x.classList.remove('active'); });
+  document.querySelector('.nav li[data-p="'+p+'"]').classList.add('active');
+  document.querySelectorAll('.page').forEach(function(x){ x.classList.remove('active'); });
+  document.getElementById(p).classList.add('active');
+  setTimeout(function(){
+    (window.__chartResizers || []).forEach(function(fn){ try{ fn(); }catch(e){} });
+  }, 80);
+}
+document.querySelectorAll('.nav li').forEach(function(li){
+  li.addEventListener('click', function(){ goto(li.dataset.p); });
+});
+document.getElementById('logoHome').addEventListener('click', function(){ goto('p0'); });
+document.getElementById('backDash').addEventListener('click', function(){ location.href = '智慧农场大屏.html'; });
+document.querySelectorAll('.qk[data-goto]').forEach(function(q){
+  q.addEventListener('click', function(){ goto(q.dataset.goto); });
+});
+
+/* ================= 通用：CSV 导出 ================= */
+function exportCSV(filename, rows){
+  var csv = rows.map(function(r){ return r.map(function(c){
+    var s = String(c == null ? '' : c);
+    return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }).join(','); }).join('\n');
+  var blob = new Blob(['\ufeff' + csv], { type:'text/csv;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); }, 300);
+  UI.showToast('已导出：' + filename);
+}
+
+/* ================= 通用：复选框全选/批量 ================= */
+function bindCheck(allId, rowSel, updateFn){
+  var all = document.getElementById(allId);
+  all.addEventListener('change', function(){
+    document.querySelectorAll(rowSel).forEach(function(c){ c.checked = all.checked; c.closest('tr').classList.toggle('sel', all.checked); });
+    updateFn && updateFn();
+  });
+  document.addEventListener('change', function(e){
+    if (e.target.matches(rowSel)){
+      e.target.closest('tr').classList.toggle('sel', e.target.checked);
+      var cs = document.querySelectorAll(rowSel), n = 0;
+      cs.forEach(function(c){ if (c.checked) n++; });
+      all.checked = (n === cs.length && n > 0);
+      updateFn && updateFn();
+    }
+  });
+}
+function selCount(rowSel){ var n = 0; document.querySelectorAll(rowSel).forEach(function(c){ if (c.checked) n++; }); return n; }
+function nowHM2(){
+  var d = new Date(), p = function(n){ return (n<10?'0':'')+n; };
+  return p(d.getHours()) + ':' + p(d.getMinutes());
+}
+function toast(msg){ UI.showToast(msg); }
+
+/* ================= 工作台 ================= */
+(function(){
+  var CR = CROPS;
+  var cropHtml = '<div class="crops">' + CR.map(function(c, i){
+    var cols = ['#22c55e','#f59e0b','#3b82f6'];
+    return '<div class="cr"><i style="background:'+cols[i%3]+'"></i>'+c.name+'<b>'+c.kg+c.unit+'</b></div>';
+  }).join('') + '</div>';
+  var kpis = [
+    {key:'harvest', html: '<div class="ic" style="background:linear-gradient(135deg,#e9f7ee,#d3efdd)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.9"><path d="M4 20l3-8 4 2 3-6 6 12z"/></svg></div><div class="kv"><div class="k">今日采收</div><div class="v">520<small>kg</small></div>'+cropHtml+'</div>'},
+    {key:'devices', html: '<div class="ic" style="color:#2563eb"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div><div class="kv"><div class="k">在线设备</div><div class="v">14 / 16<small>台</small></div></div>'},
+    {key:'alarms', html: '<div class="ic" style="color:#dc2626"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 3l10 18H2z"/><path d="M12 9v5M12 17.5v.5"/></svg></div><div class="kv"><div class="k">待处置告警</div><div class="v" id="kpiAlarmNum">'+ALARMS.filter(function(a){return a.st!=='已处置';}).length+'</div></div>'},
+    {key:'tasks', html: '<div class="ic" style="color:#b45309"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12h8M8 16h5"/></svg></div><div class="kv"><div class="k">待办任务</div><div class="v">3</div></div>'}
+  ];
+  document.getElementById('p0Kpis').innerHTML = kpis.map(function(k){
+    return '<div class="card kpi" data-k="'+k.key+'">' + k.html + '</div>';
+  }).join('');
+  document.getElementById('p0Kpis').addEventListener('click', function(e){
+    var c = e.target.closest('.kpi'); if (!c) return;
+    var key = c.dataset.k;
+    if (key === 'harvest'){
+      UI.openModal({ title:'今日采收', sub:'按作物分类 · 2026-09-11',
+        bodyHTML:'<div class="mk-grid">' + CR.map(function(cr, i){
+          var cols = ['#22c55e','#f59e0b','#3b82f6'];
+          var up = +cr.trend.replace('%','').replace('+','') >= 0;
+          return '<div class="mk"><div class="k"><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+cols[i%3]+';margin-right:6px"></i>'+cr.name+' · '+cr.area+'</div><div class="v">'+cr.kg+cr.unit+'<small style="color:'+(up?'#16a34a':'#dc2626')+'">'+cr.trend+'</small></div></div>';
+        }).join('') + '</div><div class="mk-desc">各作物独立统计，按生长周期采收计划执行，波动 ±10% 内属正常。</div>' });
+    } else if (key === 'devices'){
+      var devs = [].concat(DEV.gh, DEV.farm);
+      UI.openModal({ title:'设备运行', sub:'14 / 16 台在线',
+        bodyHTML:'<div class="mk-grid">' + devs.map(function(dv){
+          return '<div class="mk"><div class="k">'+dv.name+' · '+dv.loc+'</div><div class="v '+(dv.st==='on'?'ok':(dv.st==='err'?'bad':''))+'">'+dv.stTxt+'</div></div>';
+        }).join('') + '</div><div class="mk-desc">设备每 30 分钟自检一次，异常自动生成告警并推送责任人。</div>' });
+    } else if (key === 'alarms'){ goto('p3'); }
+    else if (key === 'tasks'){
+      UI.openModal({ title:'待办任务', sub:'3 项今日待办',
+        bodyHTML:'<table class="mk-tb"><tr><th>任务</th><th>负责人</th><th>状态</th></tr>' +
+          '<tr><td>3号大棚卷帘检修</td><td>李师傅</td><td>待执行</td></tr>' +
+          '<tr><td>2号田灌排闸门巡检</td><td>王师傅</td><td>待执行</td></tr>' +
+          '<tr><td>植保无人机电池更换</td><td>张工</td><td>待执行</td></tr></table><div class="mk-desc">🤖 小农建议：优先处理与告警关联的任务，完成后在系统内勾选闭环。</div>' });
+    }
+  });
+
+  /* 数据汇总表（大棚+农田） */
+  var rows = [];
+  for (var i = 1; i <= 5; i++){
+    var g = DATA[i], f = FDATA[i];
+    rows.push({kind:'gh', id:i, name:i+'号大棚', cat:'大棚', c1:'温度 '+g.env.t+'℃ · 湿度 '+g.env.h+'%', sc:+g.grow.sc});
+    rows.push({kind:'farm', id:i, name:i+'号田', cat:'农田', c1:'水温 '+f.env.wt+'℃ · 水位 '+f.env.wl+'cm', sc:+f.grow.sc});
+  }
+  function renderSum(){
+    document.querySelector('#sumTb tbody').innerHTML = rows.map(function(r){
+      var st = r.sc >= 85 ? '<span class="tag g">正常</span>' : (r.sc >= 78 ? '<span class="tag y">关注</span>' : '<span class="tag r">偏低</span>');
+      return '<tr><td><input type="checkbox" class="chk sum-cb"></td><td>'+r.name+'</td><td>'+r.cat+'</td><td>'+r.c1+'</td><td class="num">'+r.sc+'</td><td>'+st+'</td>' +
+        '<td><div class="ops"><button class="btn text sm btn-sumview">查看</button></div></td></tr>';
+    }).join('');
+  }
+  renderSum();
+  document.getElementById('sumTb').addEventListener('click', function(e){
+    var b = e.target.closest('.btn-sumview'); if (!b) return;
+    var tr = b.closest('tr'); var idx = Array.prototype.indexOf.call(tr.parentNode.children, tr);
+    var r = rows[idx];
+    var L = FD.LBL[r.kind], d = r.kind === 'gh' ? DATA[r.id] : FDATA[r.id];
+    var envKs = r.kind==='gh' ? ['t','h','c','l','p'] : ['wt','mt','wl','do','sp'];
+    var soilKs = r.kind==='gh' ? ['t','h','e','p','s'] : ['ph','om','n','p','k'];
+    var envHtml = L.envK.map(function(kn,i){ return '<div class="mk"><div class="k">'+kn+'</div><div class="v">'+d.env[envKs[i]]+'<small>'+L.envU[i]+'</small></div></div>'; }).join('');
+    var soilHtml = L.soilK.map(function(kn,i){ return '<div class="mk"><div class="k">'+kn+'</div><div class="v">'+d.soil[soilKs[i]]+'<small>'+L.soilU[i]+'</small></div></div>'; }).join('');
+    var growKeys = r.kind==='gh' ? ['y','tr','la','m','up','ir'] : ['ti','ph','la','m','up','ir'];
+    var growHtml = L.growK.map(function(kn,i){ return '<div class="mk"><div class="k">'+kn+'</div><div class="v">'+d.grow[growKeys[i]]+'<small>'+L.growU[i]+'</small></div></div>'; }).join('');
+    sysCtx = { kind:r.kind, id:r.id, name:r.name };
+    var diag = AIExpert.diagnose(r.kind, r.id);
+    var advHtml = diag.items.map(function(x){
+      return '<tr><td>'+x.name+'</td><td>'+x.value+x.unit+'</td><td>'+x.st+'</td><td>'+x.txt+'</td></tr>';
+    }).join('');
+    UI.openModal({ title:r.name, sub:r.cat + ' · 实时测点',
+      bodyHTML:'<div class="mk-grid">'+envHtml+'</div>' +
+        '<div class="mk-desc"><b>🤖 小农诊断：</b>'+diag.title+'（'+diag.overall+'，长势指数 '+diag.score+' 分）</div>' +
+        '<div class="mk-grid">'+soilHtml+'</div>' +
+        '<table class="mk-tb"><tr><th>指标</th><th>当前</th><th>判定</th><th>指导意见</th></tr>'+advHtml+'</table>' });
+  });
+  bindCheck('sumAll', '.sum-cb', null);
+
+  /* 告警速览 */
+  function renderWarn(){
+    var todos = ALARMS.filter(function(a){ return a.st !== '已处置'; }).slice(0, 4);
+    document.getElementById('warnList').innerHTML = todos.map(function(a){
+      var tag = a.lv === '紧急' ? '<span class="tag r">紧急</span>' : '<span class="tag y">预警</span>';
+      return '<tr><td>'+tag+'</td><td>'+a.content+'</td><td style="color:#9ca3af">'+a.time+'</td></tr>';
+    }).join('') || '<tr><td colspan="3" style="text-align:center;color:#9ca3af;padding:22px 0">暂无待处置告警</td></tr>';
+    document.getElementById('qkAlarm').textContent = todos.length ? todos.length + ' 条待处置' : '';
+    document.getElementById('navAlarmBadge').textContent = todos.length;
+  }
+  renderWarn();
+  document.getElementById('warnMore').addEventListener('click', function(){ goto('p3'); });
+
+  /* 园区动态 */
+  document.getElementById('dynList').innerHTML = [
+    ['3号大棚完成灌溉 28L/亩','16:30'],
+    ['2号大棚完成采收 500kg','15:10'],
+    ['1号大棚施肥作业完成','14:20'],
+    ['3号卷帘自动开启（光照联动）','09:35'],
+    ['系统自动生成 9月10日 日报','00:01']
+  ].map(function(x){
+    return '<tr><td>'+x[0]+'</td><td style="color:#9ca3af">'+x[1]+'</td></tr>';
+  }).join('');
+})();
+
+/* ================= 数据监控 p1 ================= */
+(function(){
+  var objs = [];
+  for (var i = 1; i <= 5; i++){ objs.push({v:'gh'+i, t:i+'号大棚'}); objs.push({v:'farm'+i, t:i+'号田'}); }
+  var objSel = document.getElementById('mObj');
+  objSel.innerHTML = objs.map(function(o){ return '<option value="'+o.v+'">'+o.t+'</option>'; }).join('');
+  var kinds = { gh:{keys:['t','h','c','l','p'], names:['空气温度','空气湿度','CO₂浓度','光照强度','PM2.5'], units:['℃','%RH','ppm','Lux','μg/m³']},
+                farm:{keys:['wt','mt','wl','do','sp'], names:['水温','泥温','水位','溶解氧','叶绿素'], units:['℃','℃','cm','mg/L','SPAD']} };
+  function fillPoints(){
+    var v = objSel.value, kind = v.slice(0, 2) === 'gh' ? 'gh' : 'farm';
+    var k = kinds[kind];
+    document.getElementById('mPoint').innerHTML = k.names.map(function(n, i){ return '<option value="'+k.keys[i]+'">'+n+'</option>'; }).join('');
+  }
+  fillPoints();
+  objSel.addEventListener('change', fillPoints);
+
+  var mChart = null;
+  function renderBars(){
+    var v = objSel.value, kind = v.slice(0,2)==='gh'?'gh':'farm', id = +v.slice(2);
+    var d = kind==='gh' ? DATA[id] : FDATA[id];
+    var k = kinds[kind], psel = document.getElementById('mPoint').value;
+    var idx = k.keys.indexOf(psel);
+    var base = +d.env[psel];
+    var vals = [0,1,2,3,4,5,6].map(function(i){
+      var w = Math.sin(i * 1.1 + base) * (base * .08) + base * (1 - i * .012);
+      return Math.max(1, Math.round(w * 10) / 10);
+    });
+    var hours = ['04','07','10','13','16','19','22'];
+    var el = document.getElementById('mBars');
+    if (!mChart && el){
+      mChart = echarts.init(el);
+      (window.__chartResizers = window.__chartResizers || []).push(function(){ if (mChart) mChart.resize(); });
+    }
+    if (mChart) mChart.setOption({
+      backgroundColor: 'transparent',
+      animationDuration: 420,
+      grid: { left: 6, right: 6, top: 32, bottom: 2, containLabel: true },
+      tooltip: { trigger: 'axis', backgroundColor: 'rgba(255,255,255,.97)', borderColor: '#cfe6d8', borderWidth: 1,
+        textStyle: { color: '#1f2937', fontSize: 12 }, axisPointer: { lineStyle: { color: '#16a34a' } } },
+      legend: { data: [k.names[idx]], top: 2, right: 4, itemWidth: 14, itemHeight: 3, icon: 'roundRect',
+        textStyle: { color: '#6b7280', fontSize: 11 } },
+      xAxis: { type: 'category', boundaryGap: false, data: hours,
+        axisLine: { lineStyle: { color: '#dbe5df' } },
+        axisTick: { show: false },
+        axisLabel: { color: '#6b7280', fontSize: 10, margin: 8 } },
+      yAxis: { type: 'value', scale: true,
+        splitLine: { lineStyle: { color: '#eef2ef' } },
+        axisLabel: { color: '#6b7280', fontSize: 10 } },
+      series: [{ name: k.names[idx], type: 'line', smooth: true, symbol: 'circle', symbolSize: 6, data: vals,
+        lineStyle: { width: 2.6, color: '#16a34a', shadowColor: 'rgba(22,163,74,.4)', shadowBlur: 6 },
+        itemStyle: { color: '#16a34a', borderColor: '#fff', borderWidth: 1.5 },
+        areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: 'rgba(22,163,74,.22)' }, { offset: 1, color: 'rgba(22,163,74,0)' }]) } }]
+    });
+    document.getElementById('mTbTitle').textContent = id + (kind==='gh'?'号大棚':'号田') + ' · ' + k.names[idx] + ' 趋势';
+  }
+  var mrows = [];
+  function renderM(){
+    var v = objSel.value, kind = v.slice(0,2)==='gh'?'gh':'farm', id = +v.slice(2);
+    var d = kind==='gh' ? DATA[id] : FDATA[id];
+    var k = kinds[kind], psel = document.getElementById('mPoint').value;
+    var idx = k.keys.indexOf(psel);
+    mrows = [10,9,8,7,6,5,4].map(function(h){
+      var w = Math.sin(h * 1.3 + +d.env[psel]) * (+d.env[psel] * .05) + +d.env[psel];
+      var val = Math.round(w * 10) / 10;
+      return { t: '2026-09-11 ' + (h<10?'0'+h:h) + ':00', obj: id + (kind==='gh'?'号大棚':'号田'), point: k.names[idx], val: val + k.units[idx],
+        st: Math.abs(val - +d.env[psel]) / +d.env[psel] > .12 ? '波动' : '正常' };
+    });
+    document.querySelector('#mTb tbody').innerHTML = mrows.map(function(r, i){
+      return '<tr><td><input type="checkbox" class="chk m-cb"></td><td>'+r.t+'</td><td>'+r.obj+'</td><td>'+r.point+'</td><td class="num">'+r.val+'</td>' +
+        '<td>'+(r.st==='正常'?'<span class="tag g">正常</span>':'<span class="tag y">波动</span>')+'</td>' +
+        '<td><button class="btn text sm m-view">详情</button></td></tr>';
+    }).join('');
+  }
+  function renderMAll(){ renderBars(); renderM(); }
+  document.getElementById('mQuery').addEventListener('click', renderMAll);
+  document.getElementById('mReset').addEventListener('click', function(){
+    objSel.value = 'gh1'; fillPoints();
+    document.getElementById('mRange').value = '实时';
+    renderMAll(); toast('筛选条件已重置');
+  });
+  renderMAll();
+  document.getElementById('mTb').addEventListener('click', function(e){
+    var b = e.target.closest('.m-view'); if (!b) return;
+    var tr = b.closest('tr'); var r = mrows[Array.prototype.indexOf.call(tr.parentNode.children, tr)];
+    UI.openModal({ title:r.point, sub:r.obj + ' · ' + r.t,
+      bodyHTML:'<div class="mk-grid"><div class="mk"><div class="k">当前值</div><div class="v">'+r.val+'</div></div>' +
+        '<div class="mk"><div class="k">采集时间</div><div class="v">'+r.t+'</div></div>' +
+        '<div class="mk"><div class="k">状态</div><div class="v '+(r.st==='正常'?'ok':'warn')+'">'+r.st+'</div></div></div>' +
+        '<div class="mk-desc">🤖 小农解读：该测点当前处于'+(r.st==='正常'?'正常波动区间，无需干预':'偏离常态，建议现场复核测点设备并关注趋势变化')+'。</div>' });
+  });
+  document.getElementById('mExport').addEventListener('click', function(){
+    exportCSV('数据监控_' + objSel.value + '.csv', [['时间','监测对象','测点','值','状态']].concat(mrows.map(function(r){ return [r.t, r.obj, r.point, r.val, r.st]; })));
+  });
+  bindCheck('mAll', '.m-cb', function(){
+    document.getElementById('mBulk').classList.toggle('show', selCount('.m-cb') > 0);
+    document.getElementById('mCnt').textContent = selCount('.m-cb');
+  });
+  document.getElementById('mBulkExport').addEventListener('click', function(){
+    var sel = mrows.filter(function(r, i){ return document.querySelectorAll('.m-cb')[i].checked; });
+    exportCSV('数据监控_批量.csv', [['时间','监测对象','测点','值','状态']].concat(sel.map(function(r){ return [r.t, r.obj, r.point, r.val, r.st]; })));
+  });
+  document.getElementById('mBulkClear').addEventListener('click', function(){
+    document.querySelectorAll('.m-cb').forEach(function(c){ c.checked = false; c.closest('tr').classList.remove('sel'); });
+    document.getElementById('mAll').checked = false;
+    document.getElementById('mBulk').classList.remove('show');
+  });
+})();
+
+/* ================= 设备管理 p2 ================= */
+(function(){
+  var devList = [].concat(DEV.gh.map(function(d){ d.cat = 'gh'; return d; }),
+                          DEV.farm.map(function(d){ d.cat = 'farm'; return d; }));
+  function renderDev(){
+    var cat = document.getElementById('devCat').value, st = document.getElementById('devSt').value;
+    var list = devList.filter(function(d){ return (cat === 'all' || d.cat === cat) && (st === 'all' || d.st === st); });
+    document.querySelector('#devTb tbody').innerHTML = list.map(function(d, i){
+      var tag = d.st === 'on' ? '<span class="tag g">运行中</span>' : (d.st === 'err' ? '<span class="tag r">故障</span>' : '<span class="tag gy">已停止</span>');
+      return '<tr><td><input type="checkbox" class="chk dev-cb" data-i="'+i+'"></td>' +
+        '<td class="num">'+d.name+'</td><td>'+d.loc+'</td><td>'+(d.cat==='gh'?'大棚':'农田')+'</td>' +
+        '<td>'+d.param+' '+d.val+'</td><td>'+tag+'</td>' +
+        '<td><span class="switch'+(d.st==='on'?' on':'')+'" data-i="'+i+'"></span></td>' +
+        '<td><div class="ops">' +
+          '<button class="btn text sm dev-mt" data-i="'+i+'">维护</button>' +
+          '<button class="btn text sm dev-ed" data-i="'+i+'">编辑</button>' +
+          '<button class="btn text sm danger dev-del" data-i="'+i+'">删除</button>' +
+        '</div></td></tr>';
+    }).join('') || '<tr><td colspan="8" style="text-align:center;color:#9ca3af;padding:24px">没有符合条件的设备</td></tr>';
+    var err = devList.filter(function(d){ return d.st === 'err'; }).length;
+    var on = devList.filter(function(d){ return d.st === 'on'; }).length;
+    document.getElementById('devMore').textContent = '共 ' + devList.length + ' 台 · ' + err + ' 台故障 · ' + on + ' 台运行';
+    document.getElementById('navDevBadge').textContent = err;
+  }
+  renderDev();
+  document.getElementById('devCat').addEventListener('change', renderDev);
+  document.getElementById('devSt').addEventListener('change', renderDev);
+  document.getElementById('devReset').addEventListener('click', function(){
+    document.getElementById('devCat').value = 'all';
+    document.getElementById('devSt').value = 'all';
+    renderDev(); toast('筛选条件已重置');
+  });
+
+  function locOpts(sel){
+    var locs = ['1号大棚','2号大棚','3号大棚','4号大棚','5号大棚','1号田','2号田','3号田','4号田','5号田'];
+    return locs.map(function(l){ return '<option '+(l===sel?'selected':'')+'>'+l+'</option>'; }).join('');
+  }
+
+  document.getElementById('devTb').addEventListener('click', function(e){
+    var t = e.target;
+    if (t.classList.contains('switch')){
+      var i = +t.dataset.i;
+      var d = devList[i];
+      d.st = d.st === 'on' ? 'off' : 'on';
+      d.stTxt = d.st === 'on' ? '运行中' : '已停止';
+      renderDev();
+      toast(d.name + (d.st === 'on' ? ' 已启动' : ' 已停止'));
+      return;
+    }
+    if (t.classList.contains('dev-del')){
+      var di = +t.dataset.i, d2 = devList[di];
+      UI.openModal({ title:'删除设备', sub:d2.name,
+        bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除设备 <b>'+d2.name+'</b>（'+d2.loc+'）？删除后不可恢复。</div>',
+        footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="cfmDel">确认删除</button>' });
+      document.getElementById('cfmDel').addEventListener('click', function(){
+        devList.splice(di, 1); UI.closeModal(); renderDev(); toast('已删除 ' + d2.name);
+        LOGS.unshift({time:nowHM2(), user:'张工', op:'删除设备 ' + d2.name}); renderLogs && renderLogs();
+      });
+      return;
+    }
+    if (t.classList.contains('dev-mt')){
+      var mi = +t.dataset.i, md = devList[mi];
+      UI.openModal({ title:'设备维护', sub:md.name,
+        bodyHTML:'<div class="form-grid">' +
+          '<div class="form-item full"><label>维护类型<em>*</em></label><select class="inp" id="mtType"><option>例行巡检</option><option>故障检修</option><option>保养润滑</option><option>校准标定</option></select></div>' +
+          '<div class="form-item full"><label>维护说明<em>*</em></label><textarea class="inp" id="mtNote" placeholder="填写维护内容、更换配件等"></textarea></div>' +
+          '<div class="form-item"><label>维护人<em>*</em></label><input class="inp" id="mtPerson" value="张工"></div>' +
+          '<div class="form-item"><label>维护日期</label><input type="date" class="inp" id="mtDate" value="2026-09-11"></div></div>' +
+          '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="mtSave">提交维护记录</button></div>' });
+      document.getElementById('mtSave').addEventListener('click', function(){
+        var note = document.getElementById('mtNote').value || '例行巡检';
+        UI.closeModal(); toast(md.name + ' 维护记录已保存');
+        LOGS.unshift({time:nowHM2(), user:document.getElementById('mtPerson').value, op:'维护 ' + md.name + '（' + note.slice(0, 12) + '）'}); renderLogs && renderLogs();
+      });
+      return;
+    }
+    if (t.classList.contains('dev-ed')){
+      var ei = +t.dataset.i, ed = devList[ei];
+      UI.openModal({ title:'编辑设备', sub:ed.name,
+        bodyHTML:'<div class="form-grid">' +
+          '<div class="form-item"><label>设备名称<em>*</em></label><input class="inp" id="edName" value="'+ed.name+'"></div>' +
+          '<div class="form-item"><label>所属位置<em>*</em></label><select class="inp" id="edLoc">'+locOpts(ed.loc)+'</select></div>' +
+          '<div class="form-item"><label>参数名称</label><input class="inp" id="edParam" value="'+ed.param+'"></div>' +
+          '<div class="form-item"><label>参数值</label><input class="inp" id="edVal" value="'+ed.val+'"></div>' +
+          '<div class="form-item full"><label>类别</label><select class="inp" id="edCat"><option value="gh" '+(ed.cat==='gh'?'selected':'')+'>大棚设备</option><option value="farm" '+(ed.cat==='farm'?'selected':'')+'>农田设备</option></select></div></div>' +
+          '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="edSave">保存修改</button></div>' });
+      document.getElementById('edSave').addEventListener('click', function(){
+        ed.name = document.getElementById('edName').value || ed.name;
+        ed.loc = document.getElementById('edLoc').value;
+        ed.param = document.getElementById('edParam').value;
+        ed.val = document.getElementById('edVal').value;
+        ed.cat = document.getElementById('edCat').value;
+        UI.closeModal(); renderDev(); toast('设备信息已更新');
+        LOGS.unshift({time:nowHM2(), user:'张工', op:'编辑设备 ' + ed.name}); renderLogs && renderLogs();
+      });
+    }
+  });
+
+  document.getElementById('devAdd').addEventListener('click', function(){
+    UI.openModal({ title:'新增设备', sub:'纳入园区设备台账',
+      bodyHTML:'<div class="form-grid">' +
+        '<div class="form-item"><label>设备名称<em>*</em></label><input class="inp" id="ndName" placeholder="如 9号环流风机"></div>' +
+        '<div class="form-item"><label>所属位置<em>*</em></label><select class="inp" id="ndLoc">'+locOpts('1号大棚')+'</select></div>' +
+        '<div class="form-item"><label>类别<em>*</em></label><select class="inp" id="ndCat"><option value="gh">大棚设备</option><option value="farm">农田设备</option></select></div>' +
+        '<div class="form-item"><label>初始状态</label><select class="inp" id="ndSt"><option value="on">运行中</option><option value="off">已停止</option></select></div>' +
+        '<div class="form-item"><label>参数名称</label><input class="inp" id="ndParam" placeholder="如 转速"></div>' +
+        '<div class="form-item"><label>参数值</label><input class="inp" id="ndVal" placeholder="如 1450 r/min"></div></div>' +
+        '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="ndSave">保存新增</button></div>' });
+    document.getElementById('ndSave').addEventListener('click', function(){
+      var nm = document.getElementById('ndName').value.trim();
+      if (!nm){ toast('请填写设备名称'); return; }
+      var st = document.getElementById('ndSt').value;
+      devList.push({ name:nm, loc:document.getElementById('ndLoc').value, cat:document.getElementById('ndCat').value,
+        st:st, stTxt:st==='on'?'运行中':'已停止', param:document.getElementById('ndParam').value || '状态',
+        val:document.getElementById('ndVal').value || (st==='on'?'正常':'待机') });
+      UI.closeModal(); renderDev(); toast('设备 ' + nm + ' 已添加');
+      LOGS.unshift({time:nowHM2(), user:'张工', op:'新增设备 ' + nm}); renderLogs && renderLogs();
+    });
+  });
+
+  document.getElementById('devExport').addEventListener('click', function(){
+    exportCSV('设备台账.csv', [['设备','位置','类别','参数','值','状态']].concat(devList.map(function(d){
+      return [d.name, d.loc, d.cat==='gh'?'大棚':'农田', d.param, d.val, d.stTxt];
+    })));
+  });
+
+  bindCheck('devAll', '.dev-cb', function(){
+    document.getElementById('devBulk').classList.toggle('show', selCount('.dev-cb') > 0);
+    document.getElementById('devCnt').textContent = selCount('.dev-cb');
+  });
+  document.getElementById('devBulkOn').addEventListener('click', function(){
+    document.querySelectorAll('.dev-cb:checked').forEach(function(c){ var d = devList[+c.dataset.i]; d.st='on'; d.stTxt='运行中'; });
+    document.getElementById('devBulk').classList.remove('show'); renderDev(); toast('已批量启动');
+  });
+  document.getElementById('devBulkOff').addEventListener('click', function(){
+    document.querySelectorAll('.dev-cb:checked').forEach(function(c){ var d = devList[+c.dataset.i]; d.st='off'; d.stTxt='已停止'; });
+    document.getElementById('devBulk').classList.remove('show'); renderDev(); toast('已批量停止');
+  });
+  document.getElementById('devDel').addEventListener('click', function(){
+    var n = selCount('.dev-cb');
+    if (!n){ toast('请先勾选要删除的设备'); return; }
+    UI.openModal({ title:'批量删除', sub:n + ' 台设备',
+      bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除选中的 <b>'+n+'</b> 台设备？删除后不可恢复。</div>',
+      footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="devDelCfm">确认删除</button>' });
+    document.getElementById('devDelCfm').addEventListener('click', function(){
+      var idxs = []; document.querySelectorAll('.dev-cb:checked').forEach(function(c){ idxs.push(+c.dataset.i); });
+      idxs.sort(function(a,b){ return b-a; }).forEach(function(i){ devList.splice(i, 1); });
+      UI.closeModal(); renderDev(); toast('已删除 ' + idxs.length + ' 台设备');
+      LOGS.unshift({time:nowHM2(), user:'张工', op:'批量删除设备 ' + idxs.length + ' 台'}); renderLogs && renderLogs();
+    });
+  });
+  document.getElementById('devBulkClear').addEventListener('click', function(){
+    document.querySelectorAll('.dev-cb').forEach(function(c){ c.checked = false; c.closest('tr').classList.remove('sel'); });
+    document.getElementById('devAll').checked = false;
+    document.getElementById('devBulk').classList.remove('show');
+  });
+})();
+
+/* ================= 告警管理 p3 ================= */
+(function(){
+  var seg = 'todo';
+  function renderAlarm(){
+    var lv = document.getElementById('alarmLv').value, ty = document.getElementById('alarmType').value;
+    var list = ALARMS.filter(function(a){
+      var isTodo = seg === 'todo' ? a.st !== '已处置' : a.st === '已处置';
+      return isTodo && (lv === 'all' || a.lv === lv) && (ty === 'all' || a.type === ty);
+    });
+    document.querySelector('#alarmTb tbody').innerHTML = list.map(function(a, i){
+      var tag = a.lv === '紧急' ? '<span class="tag r">紧急</span>' : '<span class="tag y">预警</span>';
+      var stTag = a.st === '已处置' ? '<span class="tag gy">已处置</span>' : (a.st === '已派单' ? '<span class="tag b">已派单</span>' : '<span class="tag r">待处置</span>');
+      var ops = seg === 'todo'
+        ? '<div class="ops"><button class="btn primary sm a-hd" data-i="'+i+'">处置</button><button class="btn text sm danger a-ig" data-i="'+i+'">忽略</button></div>'
+        : '<button class="btn text sm a-vw" data-i="'+i+'">查看</button>';
+      return '<tr><td><input type="checkbox" class="chk a-cb" data-i="'+i+'"></td>' +
+        '<td>'+tag+'</td><td>'+a.type+'</td><td>'+a.content+'</td><td>'+a.loc+'</td><td>'+a.time+'</td><td>'+stTag+'</td><td>'+ops+'</td></tr>';
+    }).join('') || '<tr><td colspan="8" style="text-align:center;color:#9ca3af;padding:24px">没有符合条件的告警</td></tr>';
+    var todo = ALARMS.filter(function(a){ return a.st !== '已处置'; }).length;
+    var done = ALARMS.filter(function(a){ return a.st === '已处置'; }).length;
+    document.getElementById('segTodo').textContent = todo;
+    document.getElementById('segDone').textContent = done;
+    document.getElementById('alarmMore').textContent = seg === 'todo' ? '待处置 ' + todo + ' 条' : '已处置 ' + done + ' 条';
+    document.getElementById('navAlarmBadge').textContent = todo;
+    document.getElementById('stAlarmNum') && (document.getElementById('stAlarmNum').textContent = todo + ' 条');
+    document.getElementById('qkAlarm') && (document.getElementById('qkAlarm').textContent = todo ? todo + ' 条待处置' : '');
+    document.getElementById('kpiAlarmNum') && (document.getElementById('kpiAlarmNum').textContent = todo);
+  }
+  renderAlarm();
+  document.getElementById('alarmSeg').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    seg = b.dataset.t;
+    document.querySelectorAll('#alarmSeg button').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+    document.getElementById('alarmAll').checked = false;
+    renderAlarm();
+  });
+  document.getElementById('alarmLv').addEventListener('change', renderAlarm);
+  document.getElementById('alarmType').addEventListener('change', renderAlarm);
+  document.getElementById('alarmReset').addEventListener('click', function(){
+    document.getElementById('alarmLv').value = 'all';
+    document.getElementById('alarmType').value = 'all';
+    renderAlarm(); toast('筛选条件已重置');
+  });
+
+  function handleOne(a){
+    UI.openModal({ title:'告警处置', sub:a.content,
+      bodyHTML:'<div class="mk-grid"><div class="mk"><div class="k">级别</div><div class="v '+(a.lv==='紧急'?'bad':'warn')+'">'+a.lv+'</div></div>' +
+        '<div class="mk"><div class="k">位置</div><div class="v">'+a.loc+'</div></div>' +
+        '<div class="mk"><div class="k">时间</div><div class="v">'+a.time+'</div></div></div>' +
+        '<div class="form-grid">' +
+        '<div class="form-item full"><label>处置方式<em>*</em></label><select class="inp" id="hdWay"><option>现场处理</option><option>远程操作</option><option>安排检修</option><option>设备更换</option><option>误报忽略</option></select></div>' +
+        '<div class="form-item full"><label>处置说明<em>*</em></label><textarea class="inp" id="hdNote" placeholder="说明处置过程、结果等"></textarea></div>' +
+        '<div class="form-item"><label>处置人<em>*</em></label><input class="inp" id="hdPerson" value="张工"></div>' +
+        '<div class="form-item"><label>处置时间</label><input type="datetime-local" class="inp" id="hdTime" value="2026-09-11T18:30"></div></div>' +
+        '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="hdSave">确认处置</button></div>' });
+    document.getElementById('hdSave').addEventListener('click', function(){
+      a.st = '已处置';
+      a.handle = { way:document.getElementById('hdWay').value, note:document.getElementById('hdNote').value || '已现场处置',
+        person:document.getElementById('hdPerson').value };
+      UI.closeModal(); renderAlarm(); toast('告警已处置归档');
+      LOGS.unshift({time:nowHM2(), user:document.getElementById('hdPerson').value, op:'处置告警：' + a.content.slice(0, 14)}); renderLogs && renderLogs();
+    });
+  }
+
+  document.getElementById('alarmTb').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    var lv = document.getElementById('alarmLv').value, ty = document.getElementById('alarmType').value;
+    var list = ALARMS.filter(function(a){
+      var isTodo = seg === 'todo' ? a.st !== '已处置' : a.st === '已处置';
+      return isTodo && (lv === 'all' || a.lv === lv) && (ty === 'all' || a.type === ty);
+    });
+    if (b.classList.contains('a-hd')){ handleOne(list[+b.dataset.i]); }
+    else if (b.classList.contains('a-ig')){
+      var a = list[+b.dataset.i];
+      a.st = '已处置'; a.handle = { way:'误报忽略', note:'经核实为误报，已忽略', person:'张工' };
+      renderAlarm(); toast('告警已忽略归档');
+      LOGS.unshift({time:nowHM2(), user:'张工', op:'忽略告警：' + a.content.slice(0, 14)}); renderLogs && renderLogs();
+    }
+    else if (b.classList.contains('a-vw')){
+      var v = list[+b.dataset.i];
+      UI.openModal({ title:'告警详情', sub:v.loc + ' · ' + v.time,
+        bodyHTML:'<div class="mk-grid"><div class="mk"><div class="k">级别</div><div class="v '+(v.lv==='紧急'?'bad':'warn')+'">'+v.lv+'</div></div>' +
+          '<div class="mk"><div class="k">类型</div><div class="v">'+v.type+'</div></div>' +
+          '<div class="mk"><div class="k">状态</div><div class="v ok">已处置</div></div></div>' +
+          '<div class="mk-desc">' + v.content + '<br>处置方式：' + (v.handle ? v.handle.way : '—') + ' · 处置人：' + (v.handle ? v.handle.person : '—') + '<br>处置说明：' + (v.handle ? v.handle.note : '—') + '</div>' });
+    }
+  });
+
+  document.getElementById('alarmHandle').addEventListener('click', function(){
+    var n = selCount('.a-cb');
+    if (!n){ toast('请先勾选要处置的告警'); return; }
+    var idxs = []; document.querySelectorAll('.a-cb:checked').forEach(function(c){ idxs.push(+c.dataset.i); });
+    var lv = document.getElementById('alarmLv').value, ty = document.getElementById('alarmType').value;
+    var list = ALARMS.filter(function(a){
+      var isTodo = seg === 'todo' ? a.st !== '已处置' : a.st === '已处置';
+      return isTodo && (lv === 'all' || a.lv === lv) && (ty === 'all' || a.type === ty);
+    });
+    UI.openModal({ title:'批量处置', sub:'共选中 ' + n + ' 条告警',
+      bodyHTML:'<div class="form-grid">' +
+        '<div class="form-item full"><label>统一处置方式<em>*</em></label><select class="inp" id="bhWay"><option>现场处理</option><option>远程操作</option><option>安排检修</option><option>误报忽略</option></select></div>' +
+        '<div class="form-item full"><label>处置说明<em>*</em></label><textarea class="inp" id="bhNote" placeholder="统一处置说明"></textarea></div>' +
+        '<div class="form-item"><label>处置人<em>*</em></label><input class="inp" id="bhPerson" value="张工"></div></div>' +
+        '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="bhSave">批量确认处置</button></div>' });
+    document.getElementById('bhSave').addEventListener('click', function(){
+      var way = document.getElementById('bhWay').value, note = document.getElementById('bhNote').value || '批量处置';
+      idxs.forEach(function(i){
+        var a = list[i]; if (a){ a.st = '已处置'; a.handle = { way:way, note:note, person:document.getElementById('bhPerson').value }; }
+      });
+      UI.closeModal(); renderAlarm(); toast('已批量处置 ' + idxs.length + ' 条告警');
+      LOGS.unshift({time:nowHM2(), user:'张工', op:'批量处置告警 ' + idxs.length + ' 条'}); renderLogs && renderLogs();
+    });
+  });
+
+  document.getElementById('alarmExport').addEventListener('click', function(){
+    exportCSV('告警列表.csv', [['级别','类型','内容','位置','时间','状态']].concat(ALARMS.map(function(a){
+      return [a.lv, a.type, a.content, a.loc, a.time, a.st];
+    })));
+  });
+  bindCheck('alarmAll', '.a-cb', function(){
+    var n = selCount('.a-cb');
+    document.getElementById('alarmHandle').textContent = '批量处置' + (n ? '（' + n + '）' : '');
+  });
+})();
+
+/* ================= 农事管理 p4 ================= */
+(function(){
+  function renderFarm(){
+    var loc = document.getElementById('farmLoc').value, ty = document.getElementById('farmType').value;
+    var list = FARMS.filter(function(f){ return (loc === 'all' || f.loc === loc) && (ty === 'all' || f.type === ty); });
+    document.querySelector('#farmTb tbody').innerHTML = list.map(function(f, i){
+      return '<tr><td><input type="checkbox" class="chk f-cb" data-i="'+i+'"></td>' +
+        '<td>'+f.time+'</td><td>'+f.loc+'</td><td><span class="tag b">'+f.type+'</span></td><td>'+f.person+'</td><td>'+f.use+'</td><td>'+f.note+'</td>' +
+        '<td><div class="ops"><button class="btn text sm f-ed" data-i="'+i+'">编辑</button><button class="btn text sm danger f-del" data-i="'+i+'">删除</button></div></td></tr>';
+    }).join('') || '<tr><td colspan="8" style="text-align:center;color:#9ca3af;padding:24px">没有符合条件的农事记录</td></tr>';
+    document.getElementById('farmMore').textContent = FARMS.length + ' 条记录';
+  }
+  renderFarm();
+  document.getElementById('farmLoc').addEventListener('change', renderFarm);
+  document.getElementById('farmType').addEventListener('change', renderFarm);
+  document.getElementById('farmReset').addEventListener('click', function(){
+    document.getElementById('farmLoc').value = 'all';
+    document.getElementById('farmType').value = 'all';
+    renderFarm(); toast('筛选条件已重置');
+  });
+
+  function locOpts2(sel){
+    var locs = ['1号大棚','2号大棚','3号大棚','4号大棚','5号大棚','1号田','2号田','3号田','4号田','5号田'];
+    return locs.map(function(l){ return '<option '+(l===sel?'selected':'')+'>'+l+'</option>'; }).join('');
+  }
+  function typeOpts(sel){
+    var ts = ['打药','施肥','灌溉','采收','整地','育苗'];
+    return ts.map(function(t){ return '<option '+(t===sel?'selected':'')+'>'+t+'</option>'; }).join('');
+  }
+  function farmForm(f){
+    var isEdit = !!f;
+    UI.openModal({ title:isEdit ? '编辑农事记录' : '新增农事登记', sub:isEdit ? f.loc + ' · ' + f.time : '登记后自动并入每日报表',
+      bodyHTML:'<div class="form-grid">' +
+        '<div class="form-item"><label>日期<em>*</em></label><input type="date" class="inp" id="nfDate" value="2026-09-11"></div>' +
+        '<div class="form-item"><label>时间<em>*</em></label><input type="time" class="inp" id="nfTime" value="'+(isEdit?f.time:'09:30')+'"></div>' +
+        '<div class="form-item"><label>位置<em>*</em></label><select class="inp" id="nfLoc">'+locOpts2(isEdit?f.loc:'1号大棚')+'</select></div>' +
+        '<div class="form-item"><label>农事类型<em>*</em></label><select class="inp" id="nfType">'+typeOpts(isEdit?f.type:'施肥')+'</select></div>' +
+        '<div class="form-item"><label>用量</label><input class="inp" id="nfUse" value="'+(isEdit?f.use:'')+'" placeholder="如 8kg"></div>' +
+        '<div class="form-item"><label>操作人<em>*</em></label><input class="inp" id="nfPerson" value="'+(isEdit?f.person:'李农')+'"></div>' +
+        '<div class="form-item full"><label>备注</label><textarea class="inp" id="nfNote" placeholder="作业说明、注意事项等">'+(isEdit?f.note:'')+'</textarea></div></div>' +
+        '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="nfSave">'+(isEdit?'保存修改':'保存登记')+'</button></div>' });
+    document.getElementById('nfSave').addEventListener('click', function(){
+      var time = document.getElementById('nfTime').value;
+      var loc = document.getElementById('nfLoc').value, ty = document.getElementById('nfType').value;
+      var person = document.getElementById('nfPerson').value || '李农';
+      if (isEdit){
+        f.time = time; f.loc = loc; f.type = ty; f.person = person;
+        f.use = document.getElementById('nfUse').value; f.note = document.getElementById('nfNote').value;
+      } else {
+        FARMS.push({ time:time, loc:loc, type:ty, person:person, use:document.getElementById('nfUse').value || '—',
+          note:document.getElementById('nfNote').value || '—' });
+      }
+      UI.closeModal(); renderFarm(); toast(isEdit ? '记录已更新' : '农事登记已保存');
+      LOGS.unshift({time:nowHM2(), user:person, op:'登记农事（' + ty + ' @ ' + loc + '）'}); renderLogs && renderLogs();
+    });
+  }
+  document.getElementById('farmAdd').addEventListener('click', function(){ farmForm(null); });
+  document.getElementById('farmTb').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    var loc = document.getElementById('farmLoc').value, ty = document.getElementById('farmType').value;
+    var list = FARMS.filter(function(f){
+      return (loc === 'all' || f.loc === loc) && (ty === 'all' || f.type === ty);
+    });
+    var i = +b.dataset.i;
+    if (b.classList.contains('f-ed')){ farmForm(list[i]); }
+    else if (b.classList.contains('f-del')){
+      var f = list[i];
+      UI.openModal({ title:'删除记录', sub:f.loc + ' · ' + f.type,
+        bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除该条农事记录（<b>'+f.loc+'</b> · '+f.time+' · '+f.type+'）？</div>',
+        footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="fDelCfm">确认删除</button>' });
+      document.getElementById('fDelCfm').addEventListener('click', function(){
+        var ix = FARMS.indexOf(f); if (ix > -1) FARMS.splice(ix, 1);
+        UI.closeModal(); renderFarm(); toast('记录已删除');
+        LOGS.unshift({time:nowHM2(), user:'张工', op:'删除农事记录（' + f.type + ' @ ' + f.loc + '）'}); renderLogs && renderLogs();
+      });
+    }
+  });
+  document.getElementById('farmExport').addEventListener('click', function(){
+    exportCSV('农事台账.csv', [['时间','位置','类型','操作人','用量','备注']].concat(FARMS.map(function(f){
+      return [f.time, f.loc, f.type, f.person, f.use, f.note];
+    })));
+  });
+  bindCheck('farmAll', '.f-cb', function(){
+    document.getElementById('farmBulk').classList.toggle('show', selCount('.f-cb') > 0);
+    document.getElementById('farmCnt').textContent = selCount('.f-cb');
+  });
+  document.getElementById('farmBulkExport').addEventListener('click', function(){
+    var loc = document.getElementById('farmLoc').value, ty = document.getElementById('farmType').value;
+    var list = FARMS.filter(function(f){ return (loc === 'all' || f.loc === loc) && (ty === 'all' || f.type === ty); });
+    var sel = list.filter(function(f, i){ var c = document.querySelectorAll('.f-cb')[i]; return c && c.checked; });
+    exportCSV('农事台账_批量.csv', [['时间','位置','类型','操作人','用量','备注']].concat(sel.map(function(f){
+      return [f.time, f.loc, f.type, f.person, f.use, f.note];
+    })));
+  });
+  document.getElementById('farmDel').addEventListener('click', function(){
+    var n = selCount('.f-cb');
+    if (!n){ toast('请先勾选要删除的记录'); return; }
+    var loc = document.getElementById('farmLoc').value, ty = document.getElementById('farmType').value;
+    var list = FARMS.filter(function(f){ return (loc === 'all' || f.loc === loc) && (ty === 'all' || f.type === ty); });
+    UI.openModal({ title:'批量删除', sub:n + ' 条记录',
+      bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除选中的 <b>'+n+'</b> 条农事记录？</div>',
+      footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="fDelAllCfm">确认删除</button>' });
+    document.getElementById('fDelAllCfm').addEventListener('click', function(){
+      var idxs = []; document.querySelectorAll('.f-cb:checked').forEach(function(c){ idxs.push(+c.dataset.i); });
+      idxs.sort(function(a,b){ return b-a; }).forEach(function(i){ var f = list[i]; if (f){ var ix = FARMS.indexOf(f); if (ix > -1) FARMS.splice(ix, 1); } });
+      UI.closeModal(); renderFarm(); toast('已删除 ' + idxs.length + ' 条记录');
+      LOGS.unshift({time:nowHM2(), user:'张工', op:'批量删除农事记录 ' + idxs.length + ' 条'}); renderLogs && renderLogs();
+    });
+  });
+  document.getElementById('farmBulkClear').addEventListener('click', function(){
+    document.querySelectorAll('.f-cb').forEach(function(c){ c.checked = false; c.closest('tr').classList.remove('sel'); });
+    document.getElementById('farmAll').checked = false;
+    document.getElementById('farmBulk').classList.remove('show');
+  });
+})();
+
+/* ================= 报表统计 p5 ================= */
+(function(){
+  document.getElementById('rptSeg').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    document.querySelectorAll('#rptSeg button').forEach(function(x){ x.classList.remove('active'); });
+    b.classList.add('active');
+    document.getElementById('rptDaily').style.display = b.dataset.t === 'daily' ? 'block' : 'none';
+    document.getElementById('rptStat').style.display = b.dataset.t === 'stat' ? 'block' : 'none';
+  });
+
+  /* 每日报表 */
+  var rptEnv = document.getElementById('rptEnv');
+  rptEnv.innerHTML = REPORT.env.map(function(r){
+    return '<tr><td>'+r.name+'</td><td class="num">'+r.avg+'</td><td>'+r.max+'</td><td>'+r.maxT+'</td><td>'+r.min+'</td><td>'+r.minT+'</td><td class="'+(r.over==='0h'?'ok':'up')+'">'+r.over+'</td></tr>';
+  }).join('');
+  var rptDev = document.getElementById('rptDev');
+  rptDev.innerHTML = REPORT.devRun.map(function(r){
+    return '<tr><td>'+r.name+'</td><td>'+r.run+'</td><td>'+r.hours+'</td><td>'+r.power+'</td></tr>';
+  }).join('');
+  var rptFarm = document.getElementById('rptFarm');
+  rptFarm.innerHTML = REPORT.farmOp.map(function(r){
+    return '<tr><td>'+r.time+'</td><td>'+r.type+'</td><td>'+r.use+'</td><td>'+r.person+'</td></tr>';
+  }).join('');
+
+  var minis = [
+    {k:'环境记录', c:'#16a34a', v:REPORT.env.length + ' 项', s:'7 测点 · 超阈值 3'},
+    {k:'设备运行', c:'#2563eb', v:'5 台', s:'2 台停机 / 1 台故障'},
+    {k:'农事操作', c:'#7c3aed', v:REPORT.farmOp.length + ' 项', s:'打药 / 施肥 / 灌溉'},
+    {k:'告警处置', c:'#ef4444', v:'6 条', s:ALARMS.filter(function(a){return a.st!=='已处置';}).length + ' 条待处理'},
+    {k:'气象记录', c:'#f59e0b', v:'6 项', s:'园区级 · 正常'},
+    {k:'产量记录', c:'#22c55e', v:'520 kg', s:'黄瓜 320 · 番茄 180 · 叶菜 20'}
+  ];
+  document.getElementById('rptMinis').innerHTML = minis.map(function(m){
+    return '<div class="card rm" data-t="'+m.k+'"><div class="k"><i style="background:'+m.c+'"></i>'+m.k+'</div><div class="v">'+m.v+'</div><div class="s">'+m.s+'</div></div>';
+  }).join('');
+  document.getElementById('rptMinis').addEventListener('click', function(e){
+    var c = e.target.closest('.rm'); if (!c) return;
+    var t = c.dataset.t;
+    var body = '';
+    if (t === '环境记录'){
+      body = '<table class="mk-tb"><tr><th>测点</th><th>日均</th><th>最高</th><th>最低</th><th>超阈值</th></tr>' + REPORT.env.map(function(r){
+        return '<tr><td>'+r.name+'</td><td>'+r.avg+'</td><td>'+r.max+'</td><td>'+r.min+'</td><td>'+r.over+'</td></tr>';
+      }).join('') + '</table>';
+    } else if (t === '设备运行'){
+      body = '<table class="mk-tb"><tr><th>设备</th><th>启停</th><th>时长</th><th>能耗</th></tr>' + REPORT.devRun.map(function(r){
+        return '<tr><td>'+r.name+'</td><td>'+r.run+'</td><td>'+r.hours+'</td><td>'+r.power+'</td></tr>';
+      }).join('') + '</table>';
+    } else if (t === '农事操作'){
+      body = '<table class="mk-tb"><tr><th>时间</th><th>类型</th><th>用量</th><th>操作人</th></tr>' + REPORT.farmOp.map(function(r){
+        return '<tr><td>'+r.time+'</td><td>'+r.type+'</td><td>'+r.use+'</td><td>'+r.person+'</td></tr>';
+      }).join('') + '</table>';
+    } else if (t === '告警处置'){
+      body = '<table class="mk-tb"><tr><th>级别</th><th>内容</th><th>位置</th><th>状态</th></tr>' + ALARMS.map(function(a){
+        return '<tr><td>'+a.lv+'</td><td>'+a.content+'</td><td>'+a.loc+'</td><td>'+a.st+'</td></tr>';
+      }).join('') + '</table>';
+    } else if (t === '气象记录'){
+      body = '<div class="mk-grid">' + FD.WEATHER.map(function(w){
+        return '<div class="mk"><div class="k">'+w.k+'</div><div class="v">'+w.v+'<small>'+w.u+'</small></div></div>';
+      }).join('') + '</div>';
+    } else if (t === '产量记录'){
+      body = '<div class="mk-grid">' + CROPS.map(function(c, i){
+        var cols = ['#22c55e','#f59e0b','#3b82f6'];
+        var up = +c.trend.replace('%','').replace('+','') >= 0;
+        return '<div class="mk"><div class="k"><i style="display:inline-block;width:8px;height:8px;border-radius:50%;background:'+cols[i%3]+';margin-right:6px"></i>'+c.name+' · '+c.area+'</div><div class="v">'+c.kg+c.unit+'<small style="color:'+(up?'#16a34a':'#dc2626')+'">'+c.trend+'</small></div></div>';
+      }).join('') + '</div>';
+    }
+    UI.openModal({ title:t + ' · 详情', sub:'2026-09-11', bodyHTML:body + '<div class="mk-desc">🤖 小农建议：数据按每日报表归档，异常项已进入告警管理待处置队列。</div>' });
+  });
+
+  /* 多选下拉 */
+  var selBox = document.getElementById('rptObjSel');
+  var listEl = document.getElementById('rptObjList');
+  var txtEl = document.getElementById('rptObjTxt');
+  var opts = ['全部','1号大棚','2号大棚','3号大棚','4号大棚','5号大棚','1号田','2号田','3号田','4号田','5号田'];
+  var checked = { '全部': true };
+  function selText(){
+    var arr = opts.filter(function(o){ return checked[o]; });
+    txtEl.textContent = arr.length === 0 ? '全部' : (arr.length === opts.length ? '全部' : arr.join('、'));
+    txtEl.title = txtEl.textContent;
+  }
+  listEl.innerHTML = '<label class="ms-item ms-all"><input type="checkbox" checked>全选</label>' +
+    opts.map(function(o){ return '<label class="ms-item"><input type="checkbox" '+(checked[o]?'checked':'')+' value="'+o+'">'+o+'</label>'; }).join('');
+  listEl.querySelector('.ms-all input').addEventListener('change', function(e){
+    var on = e.target.checked;
+    checked = {};
+    opts.forEach(function(o){ checked[o] = on; });
+    listEl.querySelectorAll('.ms-item input').forEach(function(c){ c.checked = on; });
+    selText();
+  });
+  listEl.addEventListener('change', function(e){
+    var v = e.target.value;
+    if (!v) return;
+    checked[v] = e.target.checked;
+    if (e.target.checked && v === '全部'){
+      opts.forEach(function(o){ if (o !== '全部') checked[o] = false; });
+      listEl.querySelectorAll('.ms-item input').forEach(function(c){ if (c.value !== '全部') c.checked = false; });
+    } else if (e.target.checked){
+      checked['全部'] = false;
+      listEl.querySelectorAll('.ms-item input').forEach(function(c){ if (c.value === '全部') c.checked = false; });
+    }
+    var n = opts.filter(function(o){ return checked[o]; }).length;
+    listEl.querySelector('.ms-item.ms-all input').checked = (n === opts.length);
+    selText();
+  });
+  selBox.querySelector('.ms-btn').addEventListener('click', function(){ selBox.classList.toggle('open'); });
+  document.addEventListener('click', function(e){ if (!selBox.contains(e.target)) selBox.classList.remove('open'); });
+  selText();
+
+  document.getElementById('rptGen').addEventListener('click', function(){ toast('报表已生成（' + document.getElementById('rptDate').value + '）'); });
+  document.getElementById('rptReset').addEventListener('click', function(){
+    var d = new Date();
+    var p2 = function(n){ return (n<10?'0':'') + n; };
+    document.getElementById('rptDate').value = d.getFullYear() + '-' + p2(d.getMonth()+1) + '-' + p2(d.getDate());
+    checked = {};
+    opts.forEach(function(o){ checked[o] = false; });
+    checked['全部'] = true;
+    listEl.querySelectorAll('.ms-item input').forEach(function(c){ c.checked = (c.value === '全部'); });
+    listEl.querySelector('.ms-item.ms-all input').checked = false;
+    selText(); toast('筛选条件已重置');
+  });
+  document.getElementById('rptExport').addEventListener('click', function(){
+    exportCSV('每日报表_' + document.getElementById('rptDate').value + '.csv',
+      [['类别','内容','数量','状态']].concat(REPORT.summary.map(function(s){ return [s.cat, s.content, s.num, s.st]; })));
+  });
+
+  /* ============ 统计分析（ECharts） ============ */
+  var week = [
+    {d:'9/05', v:410}, {d:'9/06', v:455}, {d:'9/07', v:430}, {d:'9/08', v:470},
+    {d:'9/09', v:505}, {d:'9/10', v:495}, {d:'9/11', v:520}
+  ];
+
+  function mkChart(id){
+    var el = document.getElementById(id);
+    return el ? echarts.init(el) : null;
+  }
+
+  /* 近 7 天产量趋势：渐变柱状图 */
+  var yieldChart = mkChart('stYieldBars');
+  if (yieldChart){ (window.__chartResizers = window.__chartResizers || []).push(function(){ if (yieldChart) yieldChart.resize(); });
+  yieldChart.setOption({
+    backgroundColor: 'transparent',
+    animationDuration: 520,
+    grid: { left: 8, right: 8, top: 28, bottom: 2, containLabel: true },
+    tooltip: { trigger: 'axis', backgroundColor: 'rgba(255,255,255,.97)', borderColor: '#cfe6d8', borderWidth: 1,
+      textStyle: { color: '#1f2937', fontSize: 12 }, axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(22,163,74,.06)' } } },
+    xAxis: { type: 'category', data: week.map(function(x){ return x.d; }),
+      axisLine: { lineStyle: { color: '#dbe5df' } }, axisTick: { show: false },
+      axisLabel: { color: '#6b7280', fontSize: 10, margin: 8 } },
+    yAxis: { type: 'value', name: 'kg', nameTextStyle: { color: '#9ca3af', fontSize: 10, align: 'right' },
+      splitLine: { lineStyle: { color: '#eef2ef' } },
+      axisLabel: { color: '#6b7280', fontSize: 10 } },
+    series: [{ name: '产量', type: 'bar', barWidth: 18, data: week.map(function(x, i){
+      return { value: x.v, itemStyle: { borderRadius: [6,6,0,0],
+        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+          { offset: 0, color: i === week.length - 1 ? '#16a34a' : '#4ade80' },
+          { offset: 1, color: i === week.length - 1 ? '#15803d' : '#86efac' }]) } };
+    }),
+      markLine: { silent: true, symbol: 'none', lineStyle: { color: '#f59e0b', type: 'dashed', width: 1 },
+        label: { color: '#b45309', fontSize: 10, formatter: '均值 {c}' },
+        data: [{ type: 'average' }] } }]
+  });
+  }
+
+  /* 作物产量占比：环形图 */
+  var donutChart = mkChart('stDonut');
+  if (donutChart){ (window.__chartResizers = window.__chartResizers || []).push(function(){ if (donutChart) donutChart.resize(); });
+  donutChart.setOption({
+    backgroundColor: 'transparent',
+    color: ['#22c55e', '#f59e0b', '#3b82f6'],
+    tooltip: { trigger: 'item', formatter: '{b}：{c} kg（{d}%）', backgroundColor: 'rgba(255,255,255,.97)', borderColor: '#cfe6d8',
+      textStyle: { color: '#1f2937', fontSize: 12 } },
+    legend: { orient: 'vertical', right: 2, top: 'center', icon: 'circle', itemWidth: 8, itemHeight: 8,
+      textStyle: { color: '#4b5563', fontSize: 11 } },
+    series: [{
+      type: 'pie', radius: ['52%', '74%'], center: ['36%', '50%'], avoidLabelOverlap: true,
+      itemStyle: { borderRadius: 6, borderColor: '#fff', borderWidth: 2 },
+      label: { show: true, position: 'center', formatter: '{v|' + CROPS.reduce(function(s, c){ return s + c.kg; }, 0) + '}\n{t|总产量 kg}', rich: {
+        v: { fontSize: 20, fontWeight: 700, color: '#111827' }, t: { fontSize: 10, color: '#9ca3af' } } },
+      emphasis: { label: { show: true }, scaleSize: 6 },
+      data: CROPS.map(function(c){ return { name: c.name, value: c.kg }; })
+    }]
+  });
+  }
+
+  /* 告警处置分布：环形图 */
+  var aTodo = ALARMS.filter(function(a){ return a.st !== '已处置'; }).length;
+  var aDone = ALARMS.length - aTodo;
+  var alarmChart = mkChart('stAlarmDonut');
+  if (alarmChart){ (window.__chartResizers = window.__chartResizers || []).push(function(){ if (alarmChart) alarmChart.resize(); });
+  alarmChart.setOption({
+    backgroundColor: 'transparent',
+    color: ['#ef4444', '#22c55e'],
+    tooltip: { trigger: 'item', formatter: '{b}：{c} 条（{d}%）', backgroundColor: 'rgba(255,255,255,.97)', borderColor: '#cfe6d8',
+      textStyle: { color: '#1f2937', fontSize: 12 } },
+    legend: { orient: 'vertical', right: 2, top: 'center', icon: 'circle', itemWidth: 8, itemHeight: 8,
+      textStyle: { color: '#4b5563', fontSize: 11 } },
+    series: [{
+      type: 'pie', radius: ['52%', '74%'], center: ['36%', '50%'],
+      itemStyle: { borderRadius: 6, borderColor: '#fff', borderWidth: 2 },
+      label: { show: true, position: 'center', formatter: '{v|' + ALARMS.length + '}\n{t|告警总数 条}', rich: {
+        v: { fontSize: 20, fontWeight: 700, color: '#111827' }, t: { fontSize: 10, color: '#9ca3af' } } },
+      data: [
+        { name: '待处置', value: aTodo },
+        { name: '已处置', value: aDone }
+      ]
+    }]
+  });
+  }
+
+  /* 设备运行状态分布：柱状图 */
+  var devs = [].concat(DEV.gh, DEV.farm);
+  var onN = devs.filter(function(d){ return d.st === 'on'; }).length;
+  var offN = devs.filter(function(d){ return d.st === 'off'; }).length;
+  var errN = devs.filter(function(d){ return d.st === 'err'; }).length;
+  var devChart = mkChart('stDevBox');
+  if (devChart){ (window.__chartResizers = window.__chartResizers || []).push(function(){ if (devChart) devChart.resize(); });
+  devChart.setOption({
+    backgroundColor: 'transparent',
+    animationDuration: 520,
+    grid: { left: 8, right: 8, top: 24, bottom: 2, containLabel: true },
+    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow', shadowStyle: { color: 'rgba(22,163,74,.06)' } },
+      backgroundColor: 'rgba(255,255,255,.97)', borderColor: '#cfe6d8', textStyle: { color: '#1f2937', fontSize: 12 } },
+    xAxis: { type: 'category', data: ['运行中', '已停止', '故障'],
+      axisLine: { lineStyle: { color: '#dbe5df' } }, axisTick: { show: false },
+      axisLabel: { color: '#6b7280', fontSize: 11, margin: 8 } },
+    yAxis: { type: 'value', minInterval: 1, splitLine: { lineStyle: { color: '#eef2ef' } },
+      axisLabel: { color: '#6b7280', fontSize: 10 } },
+    series: [{ type: 'bar', barWidth: 34, data: [
+      { value: onN, itemStyle: { borderRadius: [7,7,0,0], color: new echarts.graphic.LinearGradient(0,0,0,1, [{offset:0,color:'#4ade80'},{offset:1,color:'#16a34a'}]) } },
+      { value: offN, itemStyle: { borderRadius: [7,7,0,0], color: new echarts.graphic.LinearGradient(0,0,0,1, [{offset:0,color:'#d1d5db'},{offset:1,color:'#9ca3af'}]) } },
+      { value: errN, itemStyle: { borderRadius: [7,7,0,0], color: new echarts.graphic.LinearGradient(0,0,0,1, [{offset:0,color:'#fca5a5'},{offset:1,color:'#ef4444'}]) } }
+    ],
+      label: { show: true, position: 'top', color: '#111827', fontSize: 12, fontWeight: 700 } }]
+  });
+  }
+
+  window.addEventListener('resize', function(){
+    [yieldChart, donutChart, alarmChart, devChart].forEach(function(c){ if (c) c.resize(); });
+  });
+
+  /* 切换「统计分析」子页签时，容器变为可见，重新计算图表尺寸 */
+  document.getElementById('rptSeg').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    setTimeout(function(){
+      (window.__chartResizers || []).forEach(function(fn){ try{ fn(); }catch(err){} });
+    }, 60);
+  });
+})();
+
+/* ================= 系统管理 p6 ================= */
+(function(){
+  function renderUsers(){
+    document.querySelector('#userTb tbody').innerHTML = USERS.map(function(u, i){
+      var roleTag = u.role === '管理员' ? '<span class="tag r">管理员</span>' : (u.role === '技术员' ? '<span class="tag b">技术员</span>' : '<span class="tag g">操作员</span>');
+      return '<tr><td><input type="checkbox" class="chk u-cb" data-i="'+i+'"></td>' +
+        '<td class="num">'+u.name+'</td><td>'+roleTag+'</td><td>'+u.scope+'</td><td>'+u.login+'</td>' +
+        '<td><div class="ops"><button class="btn text sm u-ed" data-i="'+i+'">编辑</button><button class="btn text sm danger u-del" data-i="'+i+'">删除</button></div></td></tr>';
+    }).join('');
+    document.getElementById('userMore').textContent = USERS.length + ' 个用户';
+  }
+  renderUsers();
+  document.getElementById('userTb').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if (!b) return;
+    var i = +b.dataset.i;
+    if (b.classList.contains('u-ed')){
+      var u = USERS[i];
+      UI.openModal({ title:'编辑用户', sub:u.name,
+        bodyHTML:'<div class="form-grid">' +
+          '<div class="form-item"><label>用户名<em>*</em></label><input class="inp" id="euName" value="'+u.name+'"></div>' +
+          '<div class="form-item"><label>角色<em>*</em></label><select class="inp" id="euRole">'+roleOpts(u.role)+'</select></div>' +
+          '<div class="form-item full"><label>权限范围</label><input class="inp" id="euScope" value="'+u.scope+'"></div>' +
+          '<div class="form-item full"><label>重置密码</label><input type="password" class="inp" id="euPwd" placeholder="留空则不修改"></div></div>' +
+          '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="euSave">保存</button></div>' });
+      document.getElementById('euSave').addEventListener('click', function(){
+        u.name = document.getElementById('euName').value || u.name;
+        u.role = document.getElementById('euRole').value;
+        u.scope = document.getElementById('euScope').value;
+        UI.closeModal(); renderUsers(); toast('用户信息已更新');
+      });
+    } else if (b.classList.contains('u-del')){
+      var u2 = USERS[i];
+      UI.openModal({ title:'删除用户', sub:u2.name,
+        bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除用户 <b>'+u2.name+'</b>？</div>',
+        footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="uDelCfm">确认删除</button>' });
+      document.getElementById('uDelCfm').addEventListener('click', function(){
+        USERS.splice(i, 1); UI.closeModal(); renderUsers(); toast('用户已删除');
+      });
+    }
+  });
+  function roleOpts(sel){
+    return ['管理员','技术员','操作员'].map(function(r){ return '<option '+(r===sel?'selected':'')+'>'+r+'</option>'; }).join('');
+  }
+  document.getElementById('userAdd').addEventListener('click', function(){
+    UI.openModal({ title:'新增用户', sub:'创建系统账号',
+      bodyHTML:'<div class="form-grid">' +
+        '<div class="form-item"><label>用户名<em>*</em></label><input class="inp" id="nuName" placeholder="如 赵产"></div>' +
+        '<div class="form-item"><label>角色<em>*</em></label><select class="inp" id="nuRole">'+roleOpts('操作员')+'</select></div>' +
+        '<div class="form-item"><label>初始密码<em>*</em></label><input type="password" class="inp" id="nuPwd" placeholder="设置登录密码"></div>' +
+        '<div class="form-item full"><label>权限范围</label><input class="inp" id="nuScope" value="设备操作/农事登记"></div></div>' +
+        '<div class="form-actions"><button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn primary" id="nuSave">创建用户</button></div>' });
+    document.getElementById('nuSave').addEventListener('click', function(){
+      var nm = document.getElementById('nuName').value.trim();
+      if (!nm || !document.getElementById('nuPwd').value){ toast('请填写用户名和密码'); return; }
+      USERS.push({ name:nm, role:document.getElementById('nuRole').value, scope:document.getElementById('nuScope').value, login:'从未登录' });
+      UI.closeModal(); renderUsers(); toast('用户 ' + nm + ' 已创建');
+    });
+  });
+  bindCheck('userAll', '.u-cb', function(){
+    var n = selCount('.u-cb');
+    document.getElementById('userDel').textContent = n ? '批量删除（' + n + '）' : '批量删除';
+  });
+  document.getElementById('userDel').addEventListener('click', function(){
+    var n = selCount('.u-cb');
+    if (!n){ toast('请先勾选用户'); return; }
+    var idxs = []; document.querySelectorAll('.u-cb:checked').forEach(function(c){ idxs.push(+c.dataset.i); });
+    idxs.sort(function(a,b){ return b-a; }).forEach(function(i){ USERS.splice(i, 1); });
+    renderUsers(); toast('已删除 ' + idxs.length + ' 个用户');
+  });
+
+  /* 日志 */
+  function renderLogs(){
+    document.querySelector('#logTb tbody').innerHTML = LOGS.map(function(l){
+      return '<tr><td>'+l.time+'</td><td>'+l.user+'</td><td>'+l.op+'</td></tr>';
+    }).join('') || '<tr><td colspan="3" style="text-align:center;color:#9ca3af;padding:20px">暂无日志</td></tr>';
+    document.getElementById('logMore').textContent = LOGS.length + ' 条';
+  }
+  window.renderLogs = renderLogs;
+  renderLogs();
+  document.getElementById('logExport').addEventListener('click', function(){
+    exportCSV('操作日志.csv', [['时间','用户','操作']].concat(LOGS.map(function(l){ return [l.time, l.user, l.op]; })));
+  });
+  document.getElementById('logClear').addEventListener('click', function(){
+    LOGS = []; renderLogs(); toast('日志已清空');
+  });
+
+  /* 测点 */
+  function renderPoints(){
+    document.querySelector('#pointTb tbody').innerHTML = POINTS.map(function(p, i){
+      var st = p.online ? '<span class="tag g">在线</span>' : '<span class="tag gy">离线</span>';
+      return '<tr><td><input type="checkbox" class="chk pt-cb"></td><td class="num">'+p.name+'</td><td>'+p.loc+'</td><td>'+p.freq+'</td><td>'+st+'</td><td>'+p.today+'</td>' +
+        '<td><button class="btn text sm pt-del" data-i="'+i+'">删除</button></td></tr>';
+    }).join('');
+    document.getElementById('pointMore').textContent = POINTS.length + ' 个测点';
+  }
+  renderPoints();
+  document.getElementById('pointTb').addEventListener('click', function(e){
+    var b = e.target.closest('.pt-del'); if (!b) return;
+    var i = +b.dataset.i;
+    UI.openModal({ title:'删除测点', sub:POINTS[i].name,
+      bodyHTML:'<div class="mk-desc" style="margin-top:0">确认删除测点 <b>'+POINTS[i].name+'</b>（'+POINTS[i].loc+'）？</div>',
+      footHTML:'<button class="btn plain" onclick="UI.closeModal()">取 消</button><button class="btn danger" id="ptDelCfm">确认删除</button>' });
+    document.getElementById('ptDelCfm').addEventListener('click', function(){
+      POINTS.splice(i, 1); UI.closeModal(); renderPoints(); toast('测点已删除');
+    });
+  });
+})();
+
+/* ================= 小农（悬浮智能体） ================= */
+UI.initAI({
+  theme: 'light',
+  getCtx: function(){ return sysCtx; }
+});
+</script>
+</body>
+</html>
